@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_call_onoff"
@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个电话" />
+                    android:text="Simulate a phone call" />
             </LinearLayout>
 
             <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_msg_onoff"
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个短信" />
+                    android:text="Simulate a text message" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +70,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_face_onoff"
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个facebook" />
+                    android:text="Simulate a facebook" />
             </LinearLayout>
 
             <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_messenger_onoff"
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个Messenger" />
+                    android:text="Simulate Messenger" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,7 +116,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_whatsapp_onoff"
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个Whatsapp" />
+                    android:text="Simulate Whatsapp" />
             </LinearLayout>
 
             <LinearLayout
@@ -139,7 +139,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_twitter_onoff"
@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个Twitter" />
+                    android:text="Simulate Twitter" />
             </LinearLayout>
 
             <LinearLayout
@@ -162,7 +162,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_wx_onoff"
@@ -177,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个微信" />
+                    android:text="Simulate WeChat" />
             </LinearLayout>
 
             <LinearLayout
@@ -185,7 +185,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_inst_onoff"
@@ -200,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个Instagram" />
+                    android:text="Simulate Instagram" />
             </LinearLayout>
 
             <LinearLayout
@@ -208,7 +208,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_linkedin_onoff"
@@ -223,7 +223,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个Linkedin" />
+                    android:text="Simulate Linkedin" />
             </LinearLayout>
 
             <LinearLayout
@@ -231,7 +231,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Switch
                     android:id="@+id/switch_qq_onoff"
@@ -246,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="模拟一个QQ" />
+                    android:text="Simulate QQ" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
