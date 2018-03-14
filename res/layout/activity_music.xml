@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/red"
+                android:text="注意：需设置音乐控制开关“开”，并设置音乐开始才能在支持音乐控制的设备上显示音乐播放界面。" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="设置音乐控制开关" />
+
+            <Switch
+                android:id="@+id/switch_music_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textOff="关"
+                android:textOn="开" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="App控制手环音乐开始与结束" />
+
+            <Switch
+                android:id="@+id/switch_music_startorend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textOff="结束"
+                android:textOn="开始" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginTop="10dp"
+                android:background="#0099FF" />
+            <TextView
+                android:id="@+id/tv_receive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

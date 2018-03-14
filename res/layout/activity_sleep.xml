@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+             <Button
+                android:id="@+id/btn_sleep_bydate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:text="根据日期获取" />
+             <Button
+                android:id="@+id/btn_sleepitem_bydate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="根据日期获取item" />
+             <Button
+                android:id="@+id/btn_sleep_all"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="获取所有睡眠数据" />
+             <Button
+                android:id="@+id/btn_sleep_week"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="获取周睡眠动数据" />
+             <Button
+                android:id="@+id/btn_sleep_month"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="获取月睡眠数据" />
+             <Button
+                android:id="@+id/btn_sleep_year"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="获取年睡眠数据" />
+             <TextView
+                 android:id="@+id/tv_data"
+                 android:layout_margin="10dp"
+                 android:textSize="13sp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

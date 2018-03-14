@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/btn_commission"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="定制" />
+            <Button
+                android:id="@+id/btn_unconnect"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="断线" />
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="重连" />
+
+            <Button
+                android:id="@+id/btn_test"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="测试"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_sync_health"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="同步健康信息" />
+
+            <Button
+                android:id="@+id/btn_sync_config"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="同步配置信息" />
+
+            <Button
+                android:id="@+id/btn_function_infos"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="功能列表" />
+
+            <Button
+                android:id="@+id/btn_live_data"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="实时数据" />
+
+            <Button
+                android:id="@+id/btn_sport_data"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="运动数据" />
+
+            <Button
+                android:id="@+id/btn_sleep_data"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="睡眠数据" />
+
+            <Button
+                android:id="@+id/btn_heart_data"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="心率数据" />
+
+            <Button
+                android:id="@+id/btn_device_info"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="设备信息" />
+
+            <Button
+                android:id="@+id/btn_call_msg"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="来电提醒与智能提醒" />
+
+            <Button
+                android:id="@+id/btn_wear_mode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="佩戴模式" />
+
+            <Button
+                android:id="@+id/btn_up_hand"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="抬碗识别" />
+
+            <Button
+                android:id="@+id/btn_lost"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="防丢提醒" />
+
+            <Button
+                android:id="@+id/btn_sos"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="紧急求助" />
+
+            <Button
+                android:id="@+id/btn_find_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="寻找手机" />
+
+            <Button
+                android:id="@+id/btn_long_sit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="久坐提醒" />
+
+            <Button
+                android:id="@+id/btn_undisturb_mode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="勿扰模式" />
+
+            <Button
+                android:id="@+id/btn_display_mode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="显示模式" />
+
+            <Button
+                android:id="@+id/btn_heart_Interval"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="心率区间" />
+
+            <Button
+                android:id="@+id/btn_heart_mode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="心率模式" />
+
+            <Button
+                android:id="@+id/btn_photo"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="拍照控制" />
+
+            <Button
+                android:id="@+id/btn_music"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="音乐控制" />
+
+            <Button
+                android:id="@+id/btn_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="闹钟提醒" />
+
+            <Button
+                android:id="@+id/btn_goal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="目标设置" />
+
+            <Button
+                android:id="@+id/btn_userinfo"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="用户信息" />
+
+            <Button
+                android:id="@+id/btn_unit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="单位设置" />
+
+            <Button
+                android:id="@+id/btn_unbind"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="解绑" />
+
+            <Button
+                android:id="@+id/btn_restart"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="重启设备" />
+
+            <Button
+                android:id="@+id/btn_sendlog"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="发送日志" />
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="设备升级" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

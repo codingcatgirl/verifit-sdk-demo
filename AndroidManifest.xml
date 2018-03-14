@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.veryfit.sdkdemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+     <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="22" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="com.project.ble.service" />
+    <!-- ShareSDK Permission -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name="com.veryfit.sdkdemo.config.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.ScanDeviceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.UserInfosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SyncHealthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.LiveDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.DeviceInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.CallAndMsgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.HandModeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.UpHandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.AntilostActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.FindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.LongSitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.DoNotDisturbActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.DisPlayModeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.HeartRateIntervalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.HeartRateModeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.CameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.MusicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.AlarmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SetGoalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.UnitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.DemoTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SprotActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.HeartRateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SleepActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.FunctionInfosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.SendLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.veryfit.sdkdemo.ui.CommissionActivity"
+            android:screenOrientation="portrait" />
+        <!-- BLE连接服务 -->
+        <service
+            android:name="com.veryfit.multi.service.BleConnectService"
+            android:permission="com.project.ble.service" >
+        </service>
+        <service android:name="no.nordicsemi.android.dfu.DfuService"/>
+        <service android:name="com.veryfit.sdkdemo.service.CallService" >
+        </service>
+    </application>
+
+</manifest>

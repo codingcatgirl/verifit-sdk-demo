@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="获取设备信息有两种，第一种是设备连接的情况下通过命令向设备获取，第二种是设备未连接的情况下可以从数据库中获取最近一次更新的设备信息，用于页面展示。" />
+
+    <Button
+        android:id="@+id/btn_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="获取设备信息" />
+
+    <TextView
+        android:id="@+id/tv_device_info_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
