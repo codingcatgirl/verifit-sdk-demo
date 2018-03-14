@@ -2,213 +2,215 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <Button
                 android:id="@+id/btn_commission"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="定制" />
+                android:text="Custom" />
+
             <Button
                 android:id="@+id/btn_unconnect"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="断线" />
+                android:text="Disconnect" />
 
             <Button
                 android:id="@+id/btn_connect"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="重连" />
+                android:text="Relink" />
 
             <Button
                 android:id="@+id/btn_test"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="测试"
+                android:text="test"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/btn_sync_health"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="同步健康信息" />
+                android:text="Sync Health Information" />
 
             <Button
                 android:id="@+id/btn_sync_config"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="同步配置信息" />
+                android:text="Sync Configuration Info" />
 
             <Button
                 android:id="@+id/btn_function_infos"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="功能列表" />
+                android:text="feature list" />
 
             <Button
                 android:id="@+id/btn_live_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="实时数据" />
+                android:text="real-time data" />
 
             <Button
                 android:id="@+id/btn_sport_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="运动数据" />
+                android:text="motion data" />
 
             <Button
                 android:id="@+id/btn_sleep_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="睡眠数据" />
+                android:text="sleep data" />
 
             <Button
                 android:id="@+id/btn_heart_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="心率数据" />
+                android:text="heart rate data" />
 
             <Button
                 android:id="@+id/btn_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="设备信息" />
+                android:text="Device Info" />
 
             <Button
                 android:id="@+id/btn_call_msg"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="来电提醒与智能提醒" />
+                android:text="Incoming Call Alert and Smart Alert" />
 
             <Button
                 android:id="@+id/btn_wear_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="佩戴模式" />
+                android:text="Wear Mode" />
 
             <Button
                 android:id="@+id/btn_up_hand"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="抬碗识别" />
+                android:text="lifting bowl recognition" />
 
             <Button
                 android:id="@+id/btn_lost"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="防丢提醒" />
+                android:text="anti-lost reminder" />
 
             <Button
                 android:id="@+id/btn_sos"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="紧急求助" />
+                android:text="Emergency Help" />
 
             <Button
                 android:id="@+id/btn_find_phone"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="寻找手机" />
+                android:text="look for phone" />
 
             <Button
                 android:id="@+id/btn_long_sit"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="久坐提醒" />
+                android:text="Sedentary reminder" />
 
             <Button
                 android:id="@+id/btn_undisturb_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="勿扰模式" />
+                android:text="Do not disturb mode" />
 
             <Button
                 android:id="@+id/btn_display_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="显示模式" />
+                android:text="display mode" />
 
             <Button
                 android:id="@+id/btn_heart_Interval"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="心率区间" />
+                android:text="heart rate interval" />
 
             <Button
                 android:id="@+id/btn_heart_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="心率模式" />
+                android:text="heart rate mode" />
 
             <Button
                 android:id="@+id/btn_photo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="拍照控制" />
+                android:text="photo control" />
 
             <Button
                 android:id="@+id/btn_music"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="音乐控制" />
+                android:text="music control" />
 
             <Button
                 android:id="@+id/btn_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="闹钟提醒" />
+                android:text="alarm alarm" />
 
             <Button
                 android:id="@+id/btn_goal"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="目标设置" />
+                android:text="target settings" />
 
             <Button
                 android:id="@+id/btn_userinfo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="用户信息" />
+                android:text="user information" />
 
             <Button
                 android:id="@+id/btn_unit"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="单位设置" />
+                android:text="Unit Settings" />
 
             <Button
                 android:id="@+id/btn_unbind"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="解绑" />
+                android:text="Untied" />
 
             <Button
                 android:id="@+id/btn_restart"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="重启设备" />
+                android:text="reboot device" />
 
             <Button
                 android:id="@+id/btn_sendlog"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="发送日志" />
+                android:text="Send Log" />
 
             <Button
                 android:id="@+id/btn_update"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="设备升级" />
+                android:text="Device Upgrade" />
         </LinearLayout>
     </ScrollView>
 
