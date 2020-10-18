@@ -60,7 +60,6 @@ public class SprotActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.btn_sport_bydate:
 			// To obtain data based on the date, you only need to pass the year, month, and day of the day you want to query.
