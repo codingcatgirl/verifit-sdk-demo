@@ -9,13 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:text="从数据库中获取功能列表" />
+        android:text="Get function infos from the database" />
+
     <Button
         android:id="@+id/btn_functioninfos"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:text="从手环直接获取功能列表" />
+        android:text="Get function infos from the device" />
 
     <TextView
         android:id="@+id/tv_data"

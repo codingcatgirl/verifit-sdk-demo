@@ -15,11 +15,11 @@ import com.veryfit.sdkdemo.view.BufferDialog;
 
 @SuppressLint("HandlerLeak")
 /**
- * 功能列表有两种获取方式
- * 第一种是从手环上获取，需要app与手环保持连接
- * 第二种是从数据库中获取，数据库中的功能列表是从手环上获取功能列表后缓存在数据库中的（前提是从收换上获取过功能列表，不然数据库中并不会保存此数据）
- * @author Administrator
- *
+ * There are two ways to get the feature list
+ * The first one is obtained from the bracelet, and the app needs to be connected to the bracelet
+ * The second is to obtain from the database. The function list in the database is cached in the
+ * database after obtaining the function list from the bracelet (provided that the function list
+ * has been obtained from the exchange, otherwise the data will not be saved in the database )
  */
 public class FunctionInfosActivity extends BaseActivity{
 	private TextView tvData;
@@ -29,7 +29,6 @@ public class FunctionInfosActivity extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_functioninfos);
 		initView();
@@ -45,13 +44,12 @@ public class FunctionInfosActivity extends BaseActivity{
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				final FunctionInfos infos=ProtocolUtils.getInstance().getFunctionInfosByDb();//从数据库中获取
 				if(infos!=null){
 					mHandler.postDelayed(new Runnable() {
 						@Override
 						public void run() {
-							tvData.setText("功能列表:\n\n" + infos.toString());
+							tvData.setText("Function list:\n\n" + infos.toString());
 						}
 					}, 200);
 				}
@@ -61,7 +59,6 @@ public class FunctionInfosActivity extends BaseActivity{
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				dialog.show();
 				ProtocolUtils.getInstance().getFunctionInfos();//从手环上直接获取获取
 			}
@@ -70,13 +67,12 @@ public class FunctionInfosActivity extends BaseActivity{
 	
 	@Override
 	public void onFuncTable(final FunctionInfos arg0) {
-		// TODO Auto-generated method stub
 		super.onFuncTable(arg0);
 		mHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				dialog.dismiss();
-				tvData.setText("功能列表:\n\n" + arg0.toString());
+				tvData.setText("Function list:\n\n" + arg0.toString());
 			}
 		}, 200);
 	}
