@@ -20,7 +20,6 @@ public class UpHandActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_uphand);
 		initView();
@@ -30,7 +29,6 @@ public class UpHandActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switchUpHand = (Switch) findViewById(R.id.switch_uphand);
@@ -38,9 +36,7 @@ public class UpHandActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
-		// 初始化抬腕识别数据，获取设置过的抬碗数据
 		UpHandGestrue gestrue = ProtocolUtils.getInstance().getUpHandGestrue();
 		switchUpHand.setChecked(gestrue.getOnOff());
 	}
@@ -53,10 +49,9 @@ public class UpHandActivity extends BaseActivity {
 
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				// 每次设置成功后设置的数据会保存在数据库中,用于界面展示。
-				// 设置手势识别
+				// The data set after each successful setting will be saved in the database for interface display.
 				dialog.show();
-				ProtocolUtils.getInstance().setUPHandGestrue(arg1, 5);// 参数1为开关，参数2为显示秒数
+				ProtocolUtils.getInstance().setUPHandGestrue(arg1, 5);// Parameter 1 is the switch, parameter 2 is the display seconds
 			}
 		});
 	}
@@ -70,7 +65,7 @@ public class UpHandActivity extends BaseActivity {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(UpHandActivity.this, "抬腕设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(UpHandActivity.this, "Hand lift setting set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}

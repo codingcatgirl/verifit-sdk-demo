@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical" >
+
      <Switch
-        android:id="@+id/switch_uphand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:textOff="关"
-        android:textOn="开" />
+         android:id="@+id/switch_uphand"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dp"
+         android:textOff="off"
+         android:textOn="on" />
 
 </LinearLayout>
