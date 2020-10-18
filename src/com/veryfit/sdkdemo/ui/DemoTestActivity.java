@@ -27,7 +27,6 @@ public class DemoTestActivity extends BaseActivity implements OnClickListener {
 	private MyBroadCastReceiver receiver;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_demo_test);
 		initView();
