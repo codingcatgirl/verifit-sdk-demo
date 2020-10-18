@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="脂肪燃烧" />
+            android:text="Fat burning" />
 
         <EditText
             android:id="@+id/ed_burn_fat_threshold"
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="有氧锻炼" />
+            android:text="Aerobic exercise" />
 
         <EditText
             android:id="@+id/ed_aerobic_threshold"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="极限锻炼" />
+            android:text="Extreme exercise" />
 
         <EditText
             android:id="@+id/ed_limit_threshold"
@@ -70,15 +70,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="脂肪燃烧＜有氧锻炼＜极限锻炼" 
         android:layout_margin="10dp"
-        android:textColor="@color/red"
-        />
+        android:text="Fat burning < aerobic exercise < extreme exercise"
+        android:textColor="@color/red" />
 
     <Button
         android:id="@+id/btn_heartrateinterval_commit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="提交心率区间设置" />
+        android:text="Submit heart rate zone settings" />
 
 </LinearLayout>

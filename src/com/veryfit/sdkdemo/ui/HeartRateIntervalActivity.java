@@ -23,7 +23,6 @@ public class HeartRateIntervalActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_heartrateinterval);
 		initView();
@@ -33,7 +32,6 @@ public class HeartRateIntervalActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		edBurn = (EditText) findViewById(R.id.ed_burn_fat_threshold);// 脂肪燃烧
@@ -44,7 +42,6 @@ public class HeartRateIntervalActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
 		HeartRateInterval interval = ProtocolUtils.getInstance().getHeartRateInterval();
 		if (interval != null) {
@@ -56,18 +53,18 @@ public class HeartRateIntervalActivity extends BaseActivity {
 
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		btnCommit.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				int burn = Integer.parseInt(edBurn.getText().toString());// 脂肪燃烧
-				int aerobic = Integer.parseInt(edAerobic.getText().toString());// 有氧锻炼
-				int limit = Integer.parseInt(edLimit.getText().toString());// 极限锻炼
-				HeartRateInterval rateInterval = new HeartRateInterval(0, burn, aerobic, limit, 0);// 只需传三个阈值即可
-																									// ,脂肪燃烧＜有氧锻炼＜极限锻炼
-																									// ,只支持带心率的设备
+				// Here we are setting heart rate thresholds to recognize different kinds of exercises.
+				// the values need to be burn < aerobic < limit
+				// Naturally, only devices that support heart rate detection support this feature
+				int burn = Integer.parseInt(edBurn.getText().toString());// Fat burning
+				int aerobic = Integer.parseInt(edAerobic.getText().toString());// Aerobic exercise
+				int limit = Integer.parseInt(edLimit.getText().toString());// Extreme exercise
+				HeartRateInterval rateInterval = new HeartRateInterval(0, burn, aerobic, limit, 0);
 				dialog.show();
 				ProtocolUtils.getInstance().setHeartRateInterval(rateInterval);
 			}
@@ -76,14 +73,13 @@ public class HeartRateIntervalActivity extends BaseActivity {
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1 == ProtocolEvt.SET_HEART_RATE_INTERVAL.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HeartRateIntervalActivity.this, "心率区间设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HeartRateIntervalActivity.this, "Heart rate zones set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
