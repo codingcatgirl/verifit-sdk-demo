@@ -27,8 +27,9 @@ import com.veryfit.sdkdemo.view.BufferDialog;
 
 /**
  * 
- * @author Administrator demo只提供演示，只设置一组闹钟，闹钟最大支持十个，开发者可以自行设置，为方便演示，demo只设置一个
- *         每次增删改闹钟都必须重新提交一次所有闹钟，不然会设置不上
+ * In this example, only one alarm is implemented. The maximum number of alarms supported is ten.
+ * You have to implement those yourself. To simplify this example, only one alarm is set...
+ * Every time you add, delete or modify an alarm, you must resubmit all the alarms, or you will not be able to set them
  */
 public class AlarmActivity extends BaseActivity implements android.widget.CompoundButton.OnCheckedChangeListener {
 	private Switch switchAlarm, switch1, switch2, switch3, switch4, switch5, switch6, switch7;
@@ -36,9 +37,9 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 	private RadioButton rbShuijiao, rbQichuang, rbDuanlian, rbChiyao, rbYuehui, rbJuhui, rbHuiyi, rbZidingyi;
 	private Button btnCommit;
 	private EditText edMin, edHour;
-	private boolean onOff;// 闹钟开关
+	private boolean onOff;
 	
-	private int alarmType;// 闹钟类型
+	private int alarmType;
 	private ArrayList<Switch> switchs = new ArrayList<Switch>();
 	private ArrayList<Alarm> alarms = new ArrayList<Alarm>();
 	private boolean[] weeks = new boolean[7];
@@ -47,7 +48,6 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_alarm);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -58,7 +58,6 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switch1 = (Switch) findViewById(R.id.switch_1);
@@ -92,7 +91,6 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
 		
 		List<Alarm> alarms = ProtocolUtils.getInstance().getAllAlarms();
@@ -101,7 +99,7 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 		}
 		
 		if (alarms != null && alarms.size() != 0) {
-			Alarm alarm = alarms.get(0);// demo只设置一组闹钟
+			Alarm alarm = alarms.get(0);// Demo only sets one alarm
 			DebugLog.d("Alarm=" + alarm.toString());
 			switchAlarm.setChecked(alarm.isOff_on());
 			for (int i = 0; i < 7; i++) {
@@ -113,35 +111,35 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 			edMin.setText(alarm.getAlarmMinute() + "");
 			switch (alarm.getAlarmType()) {
 			case Constants.ALARM_TYPE_GETUP:
-				DebugLog.d("type=qichuang");
+				DebugLog.d("type=qichuang (get up)");
 				rbQichuang.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_SLEEP:
-				DebugLog.d("type=shuijiao");
+				DebugLog.d("type=shuijiao (sleep)");
 				rbShuijiao.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_EXERCISE:
-				DebugLog.d("type=duanlian");
+				DebugLog.d("type=duanlian (exercise)");
 				rbDuanlian.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_MEDICINE:
-				DebugLog.d("type=chiyao");
+				DebugLog.d("type=chiyao (medicine)");
 				rbChiyao.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_ENGAGEMENT:
-				DebugLog.d("type=yuehui");
+				DebugLog.d("type=yuehui (engagement)");
 				rbYuehui.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_GETTOGETHER:
-				DebugLog.d("type=juhui");
+				DebugLog.d("type=juhui (gettogether)");
 				rbJuhui.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_MEETIING:
-				DebugLog.d("type=huiyi");
+				DebugLog.d("type=huiyi (meeting)");
 				rbHuiyi.setChecked(true);
 				break;
 			case Constants.ALARM_TYPE_CUSTOMIZE:
-				DebugLog.d("type=zidingy");
+				DebugLog.d("type=zidingy (custom)");
 				rbZidingyi.setChecked(true);
 				break;
 
@@ -153,7 +151,6 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		switch1.setOnCheckedChangeListener(this);
 		switch2.setOnCheckedChangeListener(this);
@@ -167,44 +164,34 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 			@Override
 			public void onCheckedChanged(RadioGroup arg0, int arg1) {
-				// TODO Auto-generated method stub
 				switch (arg1) {
-				// 闹钟类型
-				// ALARM_TYPE_GETUP 起床
-				// ALARM_TYPE_SLEEP 睡觉
-				// ALARM_TYPE_EXERCISE 锻炼
-				// ALARM_TYPE_MEDICINE 吃药
-				// ALARM_TYPE_ENGAGEMENT 约会
-				// ALARM_TYPE_GETTOGETHER 聚会
-				// ALARM_TYPE_MEETIING 会议
-				// ALARM_TYPE_CUSTOMIZE 自定义
-				case R.id.qichuang:
-					alarmType = Constants.ALARM_TYPE_GETUP;
-					break;
-				case R.id.shuijiao:
-					alarmType = Constants.ALARM_TYPE_SLEEP;
-					break;
-				case R.id.duanlian:
-					alarmType = Constants.ALARM_TYPE_EXERCISE;
-					break;
-				case R.id.chiyao:
-					alarmType = Constants.ALARM_TYPE_MEDICINE;
-					break;
-				case R.id.yuehui:
-					alarmType = Constants.ALARM_TYPE_ENGAGEMENT;
-					break;
-				case R.id.juhui:
-					alarmType = Constants.ALARM_TYPE_GETTOGETHER;
-					break;
-				case R.id.huiyi:
-					alarmType = Constants.ALARM_TYPE_MEETIING;
-					break;
-				case R.id.zidingy:
-					alarmType = Constants.ALARM_TYPE_CUSTOMIZE;
-					break;
+					case R.id.qichuang:
+						alarmType = Constants.ALARM_TYPE_GETUP;
+						break;
+					case R.id.shuijiao:
+						alarmType = Constants.ALARM_TYPE_SLEEP;
+						break;
+					case R.id.duanlian:
+						alarmType = Constants.ALARM_TYPE_EXERCISE;
+						break;
+					case R.id.chiyao:
+						alarmType = Constants.ALARM_TYPE_MEDICINE;
+						break;
+					case R.id.yuehui:
+						alarmType = Constants.ALARM_TYPE_ENGAGEMENT;
+						break;
+					case R.id.juhui:
+						alarmType = Constants.ALARM_TYPE_GETTOGETHER;
+						break;
+					case R.id.huiyi:
+						alarmType = Constants.ALARM_TYPE_MEETIING;
+						break;
+					case R.id.zidingy:
+						alarmType = Constants.ALARM_TYPE_CUSTOMIZE;
+						break;
 
-				default:
-					break;
+					default:
+						break;
 				}
 			}
 		});
@@ -213,7 +200,7 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 			@Override
 			public void onClick(View arg0) {
-				// 设置闹钟
+				// Set alarm
 				Alarm alarm = new Alarm();
 				int hour = Integer.parseInt(edHour.getText().toString());
 				int min = Integer.parseInt(edMin.getText().toString());
@@ -236,7 +223,6 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.switch_1:
 			weeks[0] = arg1;
@@ -270,14 +256,13 @@ public class AlarmActivity extends BaseActivity implements android.widget.Compou
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1 == ProtocolEvt.SYNC_EVT_ALARM_SYNC_COMPLETE.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(AlarmActivity.this, "闹钟设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(AlarmActivity.this, "Alarm set successfully", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}

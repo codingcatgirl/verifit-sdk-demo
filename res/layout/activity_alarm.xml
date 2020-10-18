@@ -12,12 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textColor="@color/red"
-                android:text="The demo only provides demos, only one set of alarms is set, and the alarm clock supports up to ten. The developer can set it by himself. Demos only set one for demos." />
+                android:text="For demonstration purposes, only one alarm is supported. The maximum number of alarms supported is ten. You have to implement more alarms yourself. "
+                android:textColor="@color/red" />
 
             <TextView
                 android:layout_width="wrap_content"
