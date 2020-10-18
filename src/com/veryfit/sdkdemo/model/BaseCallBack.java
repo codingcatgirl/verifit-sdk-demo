@@ -112,19 +112,19 @@ public class BaseCallBack implements ProtocalCallBack{
 	@Override
 	public void onSwitchDataAppEnd(SwitchDataAppEndReply arg0, int arg1) {
 		// TODO Auto-generated method stub
-		DebugLog.d("app交换数据结束的回调");
+		DebugLog.d("Callback for the end of app exchange data");
 	}
 
 	@Override
 	public void onSwitchDataAppIng(SwitchDataAppIngReply arg0, int arg1) {
 		// TODO Auto-generated method stub
-		DebugLog.d("app交换数据的回调");
+		DebugLog.d("Callback for app exchange data");
 	}
 
 	@Override
 	public void onSwitchDataAppStart(SwitchDataAppStartReply arg0, int arg1) {
 		// TODO Auto-generated method stub
-		DebugLog.d("app交换数据开始的回调");
+		DebugLog.d("Callback for the start of app exchange data");
 	}
 
 	@Override

@@ -32,11 +32,11 @@ public class SportData2 {
 	public int aerobic_mins;
 	public int limit_mins;
 	
-	public float averageSpeed;//均速
-	public float withSpeed;//配速
+	public float averageSpeed;
+	public float withSpeed;
 	
-	public boolean isHaveSerial=true;//是否有序列号
-	public int[] hr_data_vlaue;	//最大保存2小时,5s一个,最大1440
+	public boolean isHaveSerial=true;//is there a serial number
+	public int[] hr_data_vlaue;	// Maximum storage is 2 hours, 5s each, maximum 1440
 	public Map<Integer, int[]> hr;	//
 
 	

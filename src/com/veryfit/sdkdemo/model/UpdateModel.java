@@ -60,7 +60,7 @@ public class UpdateModel {
 	private MyAppBleListener myAppBleListener = new MyAppBleListener();
 	private int connetCount = 0;
 	/**
-	 * 是否正在升级
+	 * Is upgrading
 	 */
 	private boolean isUpdating = false;
 	private IGetDeviceUpdateInfoListener listener;
@@ -75,13 +75,13 @@ public class UpdateModel {
 	private boolean isConnection = true;
 	private Context mContext;
 	/**
-	 * 发送升级命令的次数
+	 * Number of upgrade commands sent
 	 */
 	private int sendUpdateCmdCount = 0;
 	private String demoPath;
 	private String filePath;
 	/**
-	 * DfuService发出的设备升级事件 设备升级事件广播接收器
+	 * Device upgrade event sent by DfuService Device upgrade event broadcast receiver
 	 */
 	private final BroadcastReceiver mDfuUpdateReceiver = new BroadcastReceiver() {
 		@Override
@@ -125,9 +125,9 @@ public class UpdateModel {
 			switch (msg.what) {
 			case HttpUtil.DOWN_LOAD_PROGRESS:
 				int pro = (Integer) msg.obj;
-				d("正在下载升级文件 进度:" + msg.obj);
+				d("Downloading the upgrade file progress:" + msg.obj);
 				if (pro == 110) {
-					d("升级文件 下载完毕。。开始升级");
+					d("The upgrade file is downloaded. . Start upgrade");
 					update();
 				}
 				break;
@@ -143,14 +143,14 @@ public class UpdateModel {
 			}
 
 			UpdateModel.this.d("onSysEvt，evt_type:" + evt_type + ",value:" + value + ",error:" + error);
-			// 设备进入升级模式
+			// Device enters upgrade mode
 			if (!isDfuMode && evt_type == ProtocolEvt.OTA_START.toIndex()) {
 
 				//
 				if (error != 0) {
 					if (sendUpdateCmdCount < REUPDATEE_MAX_COUNT) {
 
-						UpdateModel.this.d("升级命令发送失败....继续发送升级命令,发送次数:" + sendUpdateCmdCount);
+						UpdateModel.this.d("Failed to send upgrade command...Continue to send upgrade command, sending times:" + sendUpdateCmdCount);
 						sendUpdateCmd();
 					} else {
 						if (iUpdateListener != null) {
@@ -160,10 +160,10 @@ public class UpdateModel {
 					}
 
 				} else {
-					UpdateModel.this.d("设备进入升级模式....");
+					UpdateModel.this.d("The device enters the upgrade mode...");
 					ProtocolUtils.getInstance().setUnConnect();
 					setIsDfuMode(true);
-					// 设备初始化升级模式需要一定时间,因此延迟开启升级服务.
+					// It takes a certain time for the device to initialize the upgrade mode, so the upgrade service is delayed.
 					handler.postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -173,7 +173,7 @@ public class UpdateModel {
 				}
 
 			} else if (evt_type == ProtocolEvt.SYNC_EVT_HEALTH_PROGRESS.toIndex()) {
-				UpdateModel.this.d("同步中,value:" + value);// 其中value为同步的百分比
+				UpdateModel.this.d("synchronizing,value:" + value);// Where value is the percentage of synchronization
 				if (iUpdateListener != null) {
 					iUpdateListener.synchroData(value);
 				}
@@ -183,7 +183,7 @@ public class UpdateModel {
 			} else if (evt_type == ProtocolEvt.SYNC_EVT_HEALTH_SYNC_COMPLETE.toIndex()) {
 				isSyn = true;
 				if (!isSynComplted) {
-					UpdateModel.this.d("同步完成,发送升级命令");
+					UpdateModel.this.d("Synchronization is complete, send the upgrade command");
 					sendUpdateCmd();
 					isSynComplted = true;
 				}
@@ -211,7 +211,7 @@ public class UpdateModel {
 
 			d("mDeviceId:" + device.mDeviceId + ",mId:" + device.mId + ",mIs:" + device.mIs + ",mLen:" + device.mLen + ",mRssi" + device.mRssi);
 			if (device.mId == 10 && device.mIs == 240) {
-				d("-----------------------扫描成功 -----------------------");
+				d("-----------------------Scan successfully -----------------------");
 				isSearch = true;
 				startDfuService();
 				close();
@@ -250,7 +250,7 @@ public class UpdateModel {
 	}
 
 	/**
-	 * 发送升级命令
+	 * Send upgrade command
 	 */
 	public void sendUpdateCmd() {
 
@@ -268,13 +268,13 @@ public class UpdateModel {
 		d("sendUpdateCmd isDfuMode:" + isDfuMode());
 
 		/**
-		 * 1.设备处于升级模式,直接开启服务
+		 * 1. The device is in upgrade mode, and the service is opened directly
 		 */
 		if (isDfuMode()) {
 			startDfuService();
 			// 设备没有处于升级状态,发送升级命令....设备重启后.isDeviceConnected为true.
 		} else if (isConnection && (BleManager.getInstance().isDeviceConnected()) && !isDfuMode()) {
-			DebugLog.d("发送升级命令");
+			DebugLog.d("Send upgrade command");
 			sendUpdateCmdCount++;
 			protocolUtils.upgradeMode();
 
@@ -308,7 +308,7 @@ public class UpdateModel {
 			@Override
 			public void getUpdateDeviceInfo(DeviceUpdateInfo deviceUpdateInfo) {
 				// 下载文件
-				d("下载升级文件.....");
+				d("Download the upgrade file.....");
 				downLoadFile(deviceUpdateInfo, demoPath, handler);
 			}
 
@@ -319,7 +319,7 @@ public class UpdateModel {
 				}
 			}
 		};
-		// 获取下载文件的地址
+		// Get the address of the downloaded file
 		getDeviceUpdateInfo(true);
 	}
 
@@ -330,7 +330,7 @@ public class UpdateModel {
 		}
 
 		if (BleManager.getInstance().isDeviceConnected()) {
-			d("发送同步数据命令");
+			d("Send sync data command");
 			protocolUtils.StartSyncHealthData();
 		} else {
 			protocolUtils.connect(getDeviceAdd());
@@ -372,7 +372,7 @@ public class UpdateModel {
 	}
 
 	/**
-	 * 下载文件
+	 * download file
 	 */
 	public void downLoadFile(final DeviceUpdateInfo updateInfo, final String filePath, final Handler handler) {
 		File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
@@ -400,7 +400,7 @@ public class UpdateModel {
 	}
 
 	/**
-	 * 开启DfuService服务
+	 * Open DfuService service
 	 */
 	private void startDfuService() {
 		if (isUpdateSuccess() && !isBluetoothOpen() && mContext != null) {
@@ -411,11 +411,11 @@ public class UpdateModel {
 		final Intent service = new Intent(mContext, DfuService.class);
 		String addr = getDeviceAdd();
 		if (TextUtils.isEmpty(addr)) {
-			d("设备都没有，不升级");
+			d("No equipment, no upgrade");
 			isUpdating = false;
 			return;
 		}
-		d("开始升级 addr:" + addr + ",filePath:" + getFilePath() + ",");
+		d("Start upgrade addr:" + addr + ",filePath:" + getFilePath() + ",");
 		service.putExtra(DfuService.EXTRA_DEVICE_ADDRESS, addr);
 		service.putExtra(DfuService.EXTRA_DEVICE_NAME, "DfuTarg");
 		service.putExtra(DfuService.EXTRA_FILE_PATH, getFilePath());
@@ -437,14 +437,14 @@ public class UpdateModel {
 			return;
 		}
 		updateCount++;
-		d("升级失败次数:" + updateCount);
+		d("Number of failed upgrades:" + updateCount);
 		if (updateCount > REUPDATEE_MAX_COUNT) {
 			isUpdating = false;
 			if (iUpdateListener != null) {
 				iUpdateListener.updateFaild();
 			}
 
-			// 蓝牙断开
+			// Bluetooth disconnect
 			if (faildCode == 4106) {
 				return;
 			}
@@ -453,9 +453,9 @@ public class UpdateModel {
 			long end = System.currentTimeMillis();
 			long dt = (end - startTime) / 1000;
 			d("dt:" + dt);
-			// 设备重启了
+			// Device restarted
 			if (dt > 60) {
-				d("设备重启了....");
+				d("Device restarted....");
 				updateCount = 0;
 				isDfuMode = false;
 				isConnection = false;
@@ -467,11 +467,11 @@ public class UpdateModel {
 				return;
 			}
 			/**
-			 * 设备未进入升级模式 4098升级文件错误
+			 * The device does not enter the upgrade mode 4098 Upgrade file error
 			 */
 			if (faildCode == 4102 && isDfuMode) {
 				if (isDfuMode) {
-					// 发送升级命令成功,手环进入升级模式但没有初始化升级参数(DFU Service is not exist).
+					// The upgrade command is sent successfully, the bracelet enters the upgrade mode but the upgrade parameters are not initialized (DFU Service is not exist).
 					handler.postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -499,7 +499,7 @@ public class UpdateModel {
 		// sTool.scanLeDeviceDFU(false);
 		sTool.scanLeDevice(false,8000L);
 		if (sTool != null && !sTool.isScanning()) {
-			// 扫描升级设备
+			// Scan for upgrade equipment
 			// sTool.scanLeDeviceDFU(true);
 			// sTool.scanLeDevice(true);
 			sTool.scanLeDeviceByService(true, DFU_SERVICE_UUID,8000L);
@@ -547,7 +547,7 @@ public class UpdateModel {
 	}
 
 	/**
-	 * 是否同步过数据
+	 * Has the data been synchronized?
 	 */
 	public boolean isSyn() {
 		return isSyn;
@@ -566,7 +566,7 @@ public class UpdateModel {
 	}
 
 	/**
-	 * 设备是否处于升级模式
+	 * Whether the device is in upgrade mode
 	 */
 	public boolean isDfuMode() {
 		return isDfuMode;
@@ -616,12 +616,12 @@ public class UpdateModel {
 			if (!isDfuMode) {
 				// 同步数据发送的
 				if (isUpdating && !isSyn) {
-					UpdateModel.this.d("蓝牙连接发送同步命令");
+					UpdateModel.this.d("Bluetooth connection sends synchronization commands");
 					sendSynCmd();
 					return;
 				}
 				if (isUpdating && !isDfuMode) {
-					UpdateModel.this.d("蓝牙连接.........发送升级命令");
+					UpdateModel.this.d("Bluetooth connection.........send upgrade command");
 					sendUpdateCmd();
 					return;
 				}
@@ -632,14 +632,14 @@ public class UpdateModel {
 
 		@Override
 		public void onBLEDisConnected(String s) {
-			UpdateModel.this.d("设备断开连接.........");
+			UpdateModel.this.d("Device disconnected.........");
 		}
 
 		@Override
 		public void onBLEConnectTimeOut() {
 			super.onBLEConnectTimeOut();
 			connetCount++;
-			UpdateModel.this.d("设备连接超时.........");
+			UpdateModel.this.d("Device connection timed out.........");
 			d("connetCount:" + connetCount);
 			if (connetCount > REUPDATEE_MAX_COUNT && iUpdateListener != null) {
 				iUpdateListener.updateFaild();
@@ -649,7 +649,7 @@ public class UpdateModel {
 		@Override
 		public void onDataSendTimeOut(byte[] bytes) {
 			super.onDataSendTimeOut(bytes);
-			UpdateModel.this.d("发送数据超时.........");
+			UpdateModel.this.d("Sending data timeout.........");
 			// sendUpdateCmd();
 		}
 
@@ -695,7 +695,7 @@ public class UpdateModel {
 				d("deviceId:" + id);
 				DeviceUpdateInfo updateInfo = list.getMyDevice(id);
 				if (updateInfo != null && listener != null) {
-					d("获取到文件下载地址.....");
+					d("Get the file download address.....");
 					listener.getUpdateDeviceInfo(updateInfo);
 				}
 			}

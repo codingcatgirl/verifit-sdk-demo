@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 
 /**
- * 网络检测辅助类
+ * Network detection auxiliary class
  */
 public class NetWorkUtil {
 
@@ -15,7 +15,7 @@ public class NetWorkUtil {
 	private static NetworkInfo niInfo = null;
 
 	/**
-	 * 检测网络是否可用
+	 * Check if the network is available
 	 * 
 	 * @param context
 	 * @return
@@ -27,7 +27,7 @@ public class NetWorkUtil {
 		return niInfo != null && niInfo.isConnected();
 	}
 	/**
-	 * 检测网络是否可用
+	 * Check if the network is available
 	 *
 	 * @return
 	 */

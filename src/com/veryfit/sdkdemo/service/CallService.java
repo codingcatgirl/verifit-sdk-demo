@@ -67,7 +67,7 @@ public class CallService extends Service implements AppBleListener, ProtocalCall
 				TelephonyManager tm = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
 				switch (tm.getCallState()) {
 				case TelephonyManager.CALL_STATE_RINGING:
-					// 初始化智能提醒信息开关
+					// Initialize the smart reminder information switch
 					NoticeOnOff onOff = ProtocolUtils.getInstance().getNotice();
 					String phoneNumber = intent.getStringExtra("incoming_number");
 					DebugLog.d("onOff=" + onOff.getCallonOff());
@@ -78,7 +78,7 @@ public class CallService extends Service implements AppBleListener, ProtocalCall
 					break;
 				}
 			}else if (intent.getAction().equals(Intent.ACTION_TIME_CHANGED)) {
-				DebugLog.d("Time_Changed");//改变了时间制式
+				DebugLog.d("Time_Changed");//Changed the time system
 				Units units=ProtocolUtils.getInstance().getUnits();
 				ProtocolUtils.getInstance().setUint(units.getMode(), units.getStride(), units.getLanguage(),is24HourFormat()?Constants.TIME_MODE_24:Constants.TIME_MODE_12 );
 			}
