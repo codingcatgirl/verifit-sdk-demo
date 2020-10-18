@@ -9,9 +9,9 @@
         android:id="@+id/switch_handmode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:textOff="左手"
-        android:textOn="右手" />
+        android:layout_marginTop="20dp"
+        android:textOff="left hand"
+        android:textOn="right hand" />
 
 </LinearLayout>

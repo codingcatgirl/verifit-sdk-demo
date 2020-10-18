@@ -20,7 +20,6 @@ public class HandModeActivity extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hand_mode);
 		initView();
@@ -36,10 +35,9 @@ public class HandModeActivity extends BaseActivity{
 	
 	@Override
 	public void initData() {
-		//佩戴模式
-		//HAND_MODE_LEFT//左手
-		//HAND_MODE_RIGHT//右手
-		//获取佩戴模式 ，  每次设置成功后设置的数据会保存在数据库中
+		//HAND_MODE_LEFT
+		//HAND_MODE_RIGHT
+		//Get the wearing mode, the data set will be saved in the database every time the setting is successful
 		int mode=ProtocolUtils.getInstance().getHandMode();
 		switchHandMode.setChecked(mode==Constants.HAND_MODE_RIGHT);
 	}
@@ -50,8 +48,7 @@ public class HandModeActivity extends BaseActivity{
 			
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				//每次设置成功后设置的数据会保存在数据库中
-				//设置佩戴模式
+				//The data set will be saved in the database every time the setting is successful
 				dialog.show();
 				ProtocolUtils.getInstance().setHandMode(arg1?Constants.HAND_MODE_RIGHT:Constants.HAND_MODE_LEFT);
 			}
@@ -67,7 +64,7 @@ public class HandModeActivity extends BaseActivity{
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HandModeActivity.this, "设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HandModeActivity.this, "Set successfully", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}
