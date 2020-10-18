@@ -26,7 +26,6 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_callandmsg);
 		initView();
@@ -60,7 +59,6 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 	private Gson gson=new Gson();
 	
 	public void initData() {
-		// 初始化智能提醒信息开关
 		NoticeOnOff onOff = ProtocolUtils.getInstance().getNotice();
 		switchCall.setChecked(onOff.getCallonOff());
 		switchMsg.setChecked(onOff.getMsgonOff());
@@ -99,20 +97,19 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if(arg1==ProtocolEvt.SET_NOTICE_MSG.toIndex()){
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					Toast.makeText(CallAndMsgActivity.this, "消息发送成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(CallAndMsgActivity.this, "Message sent successfully", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}else if (arg1==ProtocolEvt.SET_NOTICE_CALL.toIndex()) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					Toast.makeText(CallAndMsgActivity.this, "电话发送成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(CallAndMsgActivity.this, "Call sent successfully", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}
@@ -120,7 +117,6 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.switch_call_onoff:
 			NoticeOnOff onOff = ProtocolUtils.getInstance().getNotice();
@@ -180,7 +176,6 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.btn_call:
 			if (ProtocolUtils.getInstance().getNotice().getCallonOff()) {
@@ -189,7 +184,7 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 			break;
 		case R.id.btn_msg:
 			if (ProtocolUtils.getInstance().getNotice().getMsgonOff()) {
-				ProtocolUtils.getInstance().setSmsEvt(Constants.MSG_TYPE_MSG, "xt", "13202270345", "你好");
+				ProtocolUtils.getInstance().setSmsEvt(Constants.MSG_TYPE_MSG, "xt", "13202270345", "Hello world");
 			}
 			break;
 		case R.id.btn_face:
@@ -229,7 +224,7 @@ public class CallAndMsgActivity extends BaseActivity implements OnCheckedChangeL
 			break;
 		case R.id.btn_qq:
 			if (ProtocolUtils.getInstance().getNotice().getQQonOff()) {
-				ProtocolUtils.getInstance().setSmsEvt(Constants.MSG_TYPE_QQ, "xt", "88888888", "哈哈的哈哈哈哈哈哈哈哈哈哈哈哈");
+				ProtocolUtils.getInstance().setSmsEvt(Constants.MSG_TYPE_QQ, "xt", "88888888", "Hahahahahahahahahahahaha");
 			}
 			break;
 
