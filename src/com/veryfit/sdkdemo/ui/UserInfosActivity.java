@@ -27,7 +27,6 @@ public class UserInfosActivity extends BleActivity{
 	private BufferDialog dialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_userinfos);
 		initView();
@@ -69,9 +68,9 @@ public class UserInfosActivity extends BleActivity{
 			edHerght.setText(infos.getHeight()+"");
 		}
 		if(infos.getGender()==Constants.MALE){
-			tvSex.setText("男");
+			tvSex.setText("Male");
 		}else {
-			tvSex.setText("女");
+			tvSex.setText("Female");
 		}
 	}
 	
@@ -83,16 +82,15 @@ public class UserInfosActivity extends BleActivity{
 	
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		super.onClick(v);
 		switch (v.getId()) {
 		case R.id.btn_nv:
 			sex=Constants.FEMALE;
-			tvSex.setText("女");
+			tvSex.setText("Female");
 			break;
 		case R.id.btn_nan:
 			sex=Constants.MALE;
-			tvSex.setText("男");
+			tvSex.setText("Male");
 			break;
 		case R.id.btn_submit:
 			String userName=edUserName.getText().toString();
@@ -117,7 +115,7 @@ public class UserInfosActivity extends BleActivity{
 				height=Integer.parseInt(edHerght.getText().toString());
 			}
 			dialog.show();
-			ProtocolUtils.getInstance().setUserinfo(userName, year, month, day, weight*100, height, sex);//必须乘一百
+			ProtocolUtils.getInstance().setUserinfo(userName, year, month, day, weight*100, height, sex);// Must be multiplied by one hundred
 			break;
 
 		default:
@@ -127,7 +125,6 @@ public class UserInfosActivity extends BleActivity{
 	
 	@Override
 	public void onSysEvt(int evt_base, int evt_type, int error, int value) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(evt_base, evt_type, error, value);
 		if(evt_type==ProtocolEvt.SET_CMD_USER_INFO.toIndex()&& error==ProtocolEvt.SUCCESS){
 			mHandler.post(new Runnable() {
@@ -137,7 +134,7 @@ public class UserInfosActivity extends BleActivity{
 					Intent intent=new Intent(UserInfosActivity.this, HomeActivity.class);
 					startActivity(intent);
 					finish();
-					Toast.makeText(UserInfosActivity.this, "用户信息设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(UserInfosActivity.this, "User information set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}

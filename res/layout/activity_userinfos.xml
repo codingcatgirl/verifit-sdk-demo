@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="10dp"
-        android:text="设置用户信息：用户信息中的身高和性别等参数是计算手环的步长，卡路里，公里数等的重要参数，请在第一时间将身高性别体重等参数设置好，以免手环上的步数显示错误()出生年月日，用户名可不用设置"
+        android:text="Set user information: The parameters such as height and gender in the user information are important parameters for calculating the step length, calories, kilometers, etc. of the bracelet. Please set the parameters such as height, gender, and weight at the first time to avoid steps on the bracelet. The number display is wrong (??) the date of birth, the user name do not need to be set"
         android:textColor="@color/red"
         android:textSize="13sp" />
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="用户名 : "
+            android:text="Username:"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
 
@@ -40,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:background="@color/public_bg"
             android:gravity="center_vertical"
-            android:hint="用户名"
+            android:hint="Username"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="生    日 : "
+            android:text="Birthday:"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
 
@@ -71,7 +71,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:hint="年"
+            android:hint="Year"
             android:inputType="number"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
@@ -83,7 +83,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:hint="月"
+            android:hint="Month"
             android:inputType="number"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
@@ -95,7 +95,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:hint="日"
+            android:hint="Day"
             android:inputType="number"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="性    别 : "
+            android:text="Gender"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
 
@@ -135,7 +135,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="男"
+            android:text="male"
             android:textColor="@color/white_100"
             android:textSize="13sp" />
 
@@ -145,7 +145,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="女"
+            android:text="female"
             android:textColor="@color/white_100"
             android:textSize="13sp" />
     </LinearLayout>
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="身    高 : "
+            android:text="Height:"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
 
@@ -198,7 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="体    重 : "
+            android:text="Weight:"
             android:textColor="@color/public_text_38"
             android:textSize="13sp" />
 
@@ -227,7 +227,7 @@
         android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
-        android:text="提交"
+        android:text="Submit"
         android:textSize="13sp" />
 
 </LinearLayout>
