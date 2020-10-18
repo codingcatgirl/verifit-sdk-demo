@@ -32,7 +32,6 @@ public class DeviceInfoActivity extends BleActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_device_info);
 		initView();
@@ -44,16 +43,19 @@ public class DeviceInfoActivity extends BleActivity {
 		btnDeviceInfo=(Button)findViewById(R.id.btn_device_info);
 		tvDeviceData=(TextView)findViewById(R.id.tv_device_info_data);
 		
-		//获取设备信息有两种，第一种是设备连接的情况下通过命令向设备获取，第二种是设备未连接的情况下可以从数据库中获取最近一次更新的设备信息，用于页面展示。
+		// There are two types of obtaining device information.
+		// The first is to obtain the device information through commands when the device is connected,
+		// and the second is to obtain the most recently updated device information from the database
+		// when the device is not connected for page display.
 		btnDeviceInfo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				//BLUETOOTH_NOT_OPEN// 蓝牙没打开
-				//DEVICE_NOT_CONNECT// 设备未连接
-				//DEVICE_NO_BLUEETOOTH// 无蓝牙设备
-				//SUCCESS// 一切正常
+				//BLUETOOTH_NOT_OPEN
+				//DEVICE_NOT_CONNECT
+				//DEVICE_NO_BLUEETOOTH
+				//SUCCESS
 				if (ProtocolUtils.getInstance().isAvailable() == ProtocolUtils.SUCCESS) {
-					dialog.setTitle("请稍候");
+					dialog.setTitle("Please wait");
 					dialog.show();
 					ProtocolUtils.getInstance().getDeviceInfo();
 				} else {
@@ -62,7 +64,7 @@ public class DeviceInfoActivity extends BleActivity {
 						mHandler.post(new Runnable() {
 							@Override
 							public void run() {
-								tvDeviceData.setText("设备信息：\n\n"+info.toString());
+								tvDeviceData.setText("Device information：\n\n"+info.toString());
 							}
 						});
 					}
@@ -73,19 +75,17 @@ public class DeviceInfoActivity extends BleActivity {
 	
 	@Override
 	public void onDeviceInfo(final BasicInfos arg0) {
-		// TODO Auto-generated method stub
 		mHandler.post(new Runnable() {
 			@Override
 			public void run() {
 				dialog.dismiss();
-				tvDeviceData.setText("设备信息：\n\n"+arg0.toString());
+				tvDeviceData.setText("Device Information：\n\n"+arg0.toString());
 			}
 		});
 	}
 	
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		ProtocolUtils.getInstance().removeProtocalCallBack(this);
 	}
@@ -93,7 +93,7 @@ public class DeviceInfoActivity extends BleActivity {
 	@Override
 	public void healthData(byte[] arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
