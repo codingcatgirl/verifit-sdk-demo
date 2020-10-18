@@ -24,7 +24,6 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_heartrate);
 		initView();
@@ -43,7 +42,6 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 		btnMonth=(Button)findViewById(R.id.btn_heartrate_month);
 		btnYear=(Button)findViewById(R.id.btn_heartrate_year);
 		tvData=(TextView)findViewById(R.id.tv_data);
-		
 	}
 	
 	
@@ -65,22 +63,31 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.btn_heartrate_bydate:
-			//根据日期获取数据只需传递想查询的那一天的年月日即可，为方便调试以今天为例  获取运动数据前务必同步 ，同步后才会有相应的那一天的心率数据(前提保证手环带有心率功能并中有心率数据)
+			// To obtain data based on the date, you only need to pass the year, month, and day of the day you want to query.
+			// To facilitate debugging, take today as an example. You must synchronize before obtaining the exercise data.
+			// After synchronization, the heart rate data of the corresponding day will be available.
+			// (With heart rate function and heart rate data)
 			@SuppressWarnings("deprecation")
-			HealthHeartRate heartRate = ProtocolUtils.getInstance().getHealthRate(new Date(year, month, day));//(月份从0开始例如8月传7)
+			HealthHeartRate heartRate = ProtocolUtils.getInstance().getHealthRate(new Date(year, month, day));// Months start at 0 (August = 7)
 			if(heartRate!=null){
 				tvData.setText(heartRate.toString());
 			}else {
-				tvData.setText("今日无数据");
+				tvData.setText("No data today");
 			}
 			break;
 		case R.id.btn_heartrateitem_bydate:
 			Sb.delete(0, Sb.length());
-			//根据日期获取数据item只需传递想查询的那一天的年月日即可 item（手环中要有心率数据）,以今天为例
-			//心率数据的item条数不固定,一般相隔五分钟左右会采集一条心率数据，如果一直没有带手环的话就不会有心率数据以及item
+			// To obtain data according to the date item, you only need to pass the year, month,
+			// and day of the day you want to query item (heart rate data in the bracelet),
+			// take today as an example
+			// The number of items in the heart rate data is not fixed.
+			// Generally, one heart rate data will be collected about five minutes apart.
+			// If there is no bracelet, there will be no heart rate data and items.
 			@SuppressWarnings("deprecation")
-			//关于item 各时间点的心率值   时间点是根据 item中 offsetMinute 计算得出的  offsetMinute是距离上一条item偏移的分钟数  第一条item的offsetMinute是距离零点的分钟数
-			List<HealthHeartRateItem> items = ProtocolUtils.getInstance().getHeartRateItems(new Date(year, month, day));//(月份从0开始例如8月传7)
+			// Regarding the heart rate value of each time point of the item, the time point is calculated according
+			// to the offsetMinute in the item. offsetMinute is the number of minutes offset from the previous item.
+			// The offsetMinute of the first item is the number of minutes from zero.
+			List<HealthHeartRateItem> items = ProtocolUtils.getInstance().getHeartRateItems(new Date(year, month, day));// Months start at 0 (August = 7)
 			if(items!=null){
 				for (int i = 0; i < items.size(); i++) {
 					Sb.append("item:"+i+"   "+items.get(i).toString()+"\n\n");
@@ -90,7 +97,7 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_heartrate_week:
 			Sb.delete(0, Sb.length());
-			//获取周数据  参数1：（当前周传0 上一周传-1再上一周传-2，以此类推）
+			// Get weekly data Parameter 1: (pass 0 in the current week, pass -1 in the previous week, pass -2 in the previous week, and so on)
 			List<HealthHeartRate> weekHeartRates=ProtocolUtils.getInstance().getWeekHealthHeartRate(0);
 			if(weekHeartRates!=null&&weekHeartRates.size()>0){
 				for (int i = 0; i < weekHeartRates.size(); i++) {
@@ -101,7 +108,7 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_heartrate_month:
 			Sb.delete(0, Sb.length());
-			//获取月数据  参数1：（当前月传0 上一月传-1再上一月传-2，以此类推）
+			// Get monthly data Parameter 1: (pass 0 in the current month, pass -1 in the previous month, pass -2 in the previous month, and so on)
 			List<HealthHeartRate> monthHeartRates=ProtocolUtils.getInstance().getMonthHeartRate(0);
 			if(monthHeartRates!=null&&monthHeartRates.size()>0){
 				for (int i = 0; i < monthHeartRates.size(); i++) {
@@ -112,7 +119,7 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_heartrate_year:
 			Sb.delete(0, Sb.length());
-			//获取年数据  参数1：（当年周传0 上一年传-1再上一年传-2，以此类推）
+			// Obtain yearly data Parameter 1: (Weekly pass 0 in the current year, pass -1 in the previous year, pass -2 in the previous year, and so on)
 			List<HealthHeartRate> yearHealthHeartRates=ProtocolUtils.getInstance().getYearHealthHeartRate(0);
 			if(yearHealthHeartRates!=null&&yearHealthHeartRates.size()>0){
 				for (int i = 0; i < yearHealthHeartRates.size(); i++) {
@@ -123,7 +130,7 @@ public class HeartRateActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_heartrate_all:
 			Sb.delete(0, Sb.length());
-			//获取所有数据库中已存的汇总数据  有几天就返回几条汇总 
+			// Get all the summary data stored in the database. Return a few summaries within a few days
 			List<HealthHeartRate> healthHeartRates=ProtocolUtils.getInstance().getAllHealthRate();
 			if(healthHeartRates!=null&&healthHeartRates.size()>0){
 				for (int i = 0; i < healthHeartRates.size(); i++) {

@@ -12,42 +12,48 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-             <Button
+
+            <Button
                 android:id="@+id/btn_heartrate_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="根据日期获取" />
-             <Button
+                android:text="Get by date" />
+
+            <Button
                 android:id="@+id/btn_heartrateitem_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="根据日期获取item" />
-             <Button
+                android:text="Get item by date" />
+
+            <Button
                 android:id="@+id/btn_heartrate_all"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取所有心率数据" />
-             <Button
+                android:text="Get all heart rate data" />
+
+            <Button
                 android:id="@+id/btn_heartrate_week"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取周心率数据" />
-             <Button
+                android:text="Get weekly heart rate data" />
+
+            <Button
                 android:id="@+id/btn_heartrate_month"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取月心率数据" />
-             <Button
+                android:text="Get monthly heart rate data" />
+
+            <Button
                 android:id="@+id/btn_heartrate_year"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取年心率数据" />
+                android:text="Get yearly heart rate data" />
              <TextView
                  android:id="@+id/tv_data"
                  android:layout_margin="10dp"
