@@ -43,7 +43,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_scan);
 		initView();
@@ -53,13 +52,11 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		mHandler.post(new Runnable() {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				ProtocolUtils.getInstance().scanDevices(true);
 			}
 		});
@@ -91,7 +88,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.btn_bind:
 			DebugLog.d("bind");
@@ -105,7 +101,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 				
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
 					ProtocolUtils.getInstance().scanDevices();
 				}
 			});
@@ -118,7 +113,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 	// 发现设备
 	@Override
 	public void onFind(BleDevice device) {
-		// TODO Auto-generated method stub
 		super.onFind(device);
 		showList(device);
 		list.add(device);
@@ -128,7 +122,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 	// 扫描结束
 	@Override
 	public void onFinish() {
-		// TODO Auto-generated method stub
 		super.onFinish();
 		DebugLog.d("onFinish");
 	}
@@ -144,25 +137,22 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	public void onServiceDiscover(BluetoothGatt gatt, int status) {
-		// TODO Auto-generated method stub
 		super.onServiceDiscover(gatt, status);
 		ProtocolUtils.getInstance().setBind();
 	}
 
 	@Override
 	public void onSysEvt(int evt_base, int evt_type, int error, int value) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(evt_base, evt_type, error, value);
 		if (evt_type == ProtocolEvt.BIND_CMD_REQUEST.toIndex() && error == ProtocolEvt.SUCCESS) {
 			if (mBufferDialog != null) {
-				mBufferDialog.setTitle("绑定成功，正在同步配置信息");
+				mBufferDialog.setTitle("Binding successful, syncing configuration...");
 			}
 			pref.setIsFirst(true);
 			mHandler1.post(new Runnable() {
 
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
 					ProtocolUtils.getInstance().setBindMode(Protocol.SYS_MODE_SET_BIND);
 					ProtocolUtils.getInstance().StartSyncConfigInfo();
 				}
@@ -175,7 +165,7 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 					Intent intent = new Intent(ScanDeviceActivity.this, UserInfosActivity.class);
 					startActivity(intent);
 					finish();
-					Toast.makeText(ScanDeviceActivity.this, "同步配置信息成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(ScanDeviceActivity.this, "Syncing configuration complete", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}
@@ -191,7 +181,6 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 
 		@Override
 		public void onReceive(Context arg0, Intent arg1) {
-			// TODO Auto-generated method stub
 			if(arg1.getAction().equals(BluetoothDevice.ACTION_FOUND)){
 				BluetoothDevice device=arg1.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 				DebugLog.d("find"+device.toString());
