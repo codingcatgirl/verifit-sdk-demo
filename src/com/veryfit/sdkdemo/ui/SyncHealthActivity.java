@@ -34,7 +34,6 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sync_health);
 		initView();
@@ -62,18 +61,18 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 			tvHeartData.setText("");
 			tvSleepData.setText("");
 			tvSportData.setText("");
-			sportSb.delete(0,sportSb.length());//清空数据
-			sleepSb.delete(0,sleepSb.length());//清空数据
-			heartSb.delete(0,heartSb.length());//清空数据
-			// 同步健康数据接口
-			if(pref.getIsFirstSync()){//第一次同步需调用firstStartSyncHealthData()
+			sportSb.delete(0,sportSb.length()); // clear data
+			sleepSb.delete(0,sleepSb.length()); // clear data
+			heartSb.delete(0,heartSb.length()); // clear data
+
+			if(pref.getIsFirstSync()){// On the first sync we need to call firstStartSyncHealthData()
 				ProtocolUtils.getInstance().firstStartSyncHealthData();
 				pref.setIsFirstSync(false);
 			}else {
 				ProtocolUtils.getInstance().StartSyncHealthData();
 			}
-			setTitle("正在同步");
-			dialog.setTitle("请稍候");
+			setTitle("Syncing");
+			dialog.setTitle("Please wait");
 			dialog.show();
 			break;
 
@@ -84,12 +83,11 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 
 	@Override
 	public void onSysEvt(int evt_base, final int evt_type, int error, final int value) {
-		// TODO Auto-generated method stub
 		if(evt_type == ProtocolEvt.SYNC_EVT_HEALTH_PROGRESS.toIndex()){
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					setTitle("同步中 : " + value + "%");
+					setTitle("Syncing: " + value + "%");
 				}
 			}, 200);
 		}else if (evt_type == ProtocolEvt.SYNC_EVT_HEALTH_SYNC_COMPLETE.toIndex()) {//Synchronization is complete
@@ -104,13 +102,12 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 
 	@Override
 	public void onHealthHeartRate(final HealthHeartRate arg0, HealthHeartRateAndItems arg1) {
-		// TODO Auto-generated method stub
 		if (arg0 != null) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					heartSb.append(arg0.toString()+"\n");
-					tvHeartData.setText("心率数据:\n\n" + heartSb.toString());
+					tvHeartData.setText("Heart rate data:\n\n" + heartSb.toString());
 				}
 			}, 200);
 		}
@@ -118,13 +115,12 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 
 	@Override
 	public void onHealthSport(final HealthSport arg0, HealthSportAndItems arg1) {
-		// TODO Auto-generated method stub
 		if (arg0 != null) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					sportSb.append(arg0.toString()+"\n");
-					tvSportData.setText("运动数据:\n\n" + sportSb.toString());
+					tvSportData.setText("Exercise data:\n\n" + sportSb.toString());
 				}
 			}, 200);
 		}
@@ -132,13 +128,12 @@ public class SyncHealthActivity extends BaseActivity implements ProtocalCallBack
 
 	@Override
 	public void onSleepData(final healthSleep arg0, healthSleepAndItems arg1) {
-		// TODO Auto-generated method stub
 		if (arg0 != null) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					sleepSb.append(arg0.toString()+"\n");
-					tvSleepData.setText("睡眠数据:\n\n" + sleepSb.toString());
+					tvSleepData.setText("Sleep data:\n\n" + sleepSb.toString());
 				}
 			}, 200);
 		}

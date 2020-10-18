@@ -12,12 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+
             <Button
                 android:id="@+id/btn_sync_health"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="同步健康信息" />
+                android:text="@string/sync_health_information" />
             <TextView
                 android:id="@+id/tv_sport_data"
                 android:layout_marginTop="20dp"

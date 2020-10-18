@@ -48,5 +48,6 @@
     <string name="wear_mode">Wear Mode</string>
     <string name="scan">Scan</string>
     <string name="bind_device">Bind device</string>
+    <string name="sync_health_information">Sync Health Information</string>
 
 </resources>
