@@ -8,15 +8,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="设置公英制" />
+        android:text="Distance units" />
 
     <Switch
         android:id="@+id/switch_unit_gongyingzhi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:textOff="英制"
-        android:textOn="公制" />
+        android:textOff="imperial"
+        android:textOn="metric" />
 
     <View
         android:layout_width="match_parent"
@@ -28,15 +28,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="设置时间制式" />
+        android:text="Time mode" />
 
     <Switch
         android:id="@+id/switch_unit_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:textOff="12小时"
-        android:textOn="24小时" />
+        android:textOff="12 hours"
+        android:textOn="24 hours" />
 
     <View
         android:layout_width="match_parent"
@@ -48,15 +48,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="设置语言" />
+        android:text="Language" />
 
     <Switch
         android:id="@+id/switch_unit_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:textOff="英文"
-        android:textOn="中文" />
+        android:textOff="English"
+        android:textOn="Chinese" />
 
     <View
         android:layout_width="match_parent"
@@ -69,6 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:text="提交单位设置" />
+        android:text="Submit unit settings" />
 
 </LinearLayout>
