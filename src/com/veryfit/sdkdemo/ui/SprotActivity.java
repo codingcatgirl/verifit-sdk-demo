@@ -24,7 +24,6 @@ public class SprotActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sport);
 		initView();
@@ -64,18 +63,21 @@ public class SprotActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.btn_sport_bydate:
-			//根据日期获取数据只需传递想查询的那一天的年月日即可，为方便调试以今天为例  获取运动数据前务必同步 ，同步后才会有相应的那一天的运动数据
+			// To obtain data based on the date, you only need to pass the year, month, and day of the day you want to query.
+			// For the convenience of debugging, take today as an example. Be sure to synchronize before obtaining the sports data.
+			// After synchronization, the sports data of the corresponding day will be available.
 			@SuppressWarnings("deprecation")
 			HealthSport sport = ProtocolUtils.getInstance().getHealthSport(new Date(year, month, day));//(月份从0开始例如8月传7)
 			if(sport!=null){
 				tvData.setText(sport.toString());
 			}else {
-				tvData.setText("今日无数据");
+				tvData.setText("No data today");
 			}
 			break;
 		case R.id.btn_sportitem_bydate:
 			Sb.delete(0, Sb.length());
-			//根据日期获取数据item只需传递想查询的那一天的年月日即可 item 固定每天96条 每隔15分钟就会有一条item
+			// To get the data item according to the date, you only need to pass the year, month, and day of the day you want to query.
+			// The item is fixed at 96 per day. There will be an item every 15 minutes.
 			@SuppressWarnings("deprecation")
 			List<HealthSportItem> items = ProtocolUtils.getInstance().getHealthSportItem(new Date(year, month, day));//(月份从0开始例如8月传7)
 			if(items!=null){
@@ -87,7 +89,7 @@ public class SprotActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sport_week:
 			Sb.delete(0, Sb.length());
-			//获取周数据  参数1：（当前周传0 上一周传-1再上一周传-2，以此类推）
+			// Get weekly data Parameter 1: (pass 0 in the current week, pass -1 in the previous week, and pass -2 in the previous week, and so on)
 			List<HealthSport> weekSprots=ProtocolUtils.getInstance().getWeekHealthSport(0);
 			if(weekSprots!=null&&weekSprots.size()>0){
 				for (int i = 0; i < weekSprots.size(); i++) {
@@ -98,7 +100,7 @@ public class SprotActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sport_month:
 			Sb.delete(0, Sb.length());
-			//获取月数据  参数1：（当前月传0 上一月传-1再上一月传-2，以此类推）
+			// Get monthly data Parameter 1: (pass 0 in the current month, pass -1 in the previous month, pass -2 in the previous month, and so on)
 			List<HealthSport> monthSprots=ProtocolUtils.getInstance().getMonthHealthSprort(0);
 			if(monthSprots!=null&&monthSprots.size()>0){
 				for (int i = 0; i < monthSprots.size(); i++) {
@@ -109,7 +111,7 @@ public class SprotActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sport_year:
 			Sb.delete(0, Sb.length());
-			//获取年数据  参数1：（当年周传0 上一年传-1再上一年传-2，以此类推）
+			// Obtain annual data Parameter 1: (Weekly pass 0 in the current year, pass -1 in the previous year, pass -2 in the previous year, and so on)
 			List<HealthSport> yearSprots=ProtocolUtils.getInstance().getYearHealthSport(0);
 			if(yearSprots!=null&&yearSprots.size()>0){
 				for (int i = 0; i < yearSprots.size(); i++) {
@@ -120,7 +122,7 @@ public class SprotActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sport_all:
 			Sb.delete(0, Sb.length());
-			//获取所有数据库中已存的汇总数据  有几天就返回几条汇总 
+			// Get all the summary data stored in the database. Return a few summaries within a few days
 			List<HealthSport> sports=ProtocolUtils.getInstance().getAllHealthSport();
 			if(sports!=null&&sports.size()>0){
 				for (int i = 0; i < sports.size(); i++) {

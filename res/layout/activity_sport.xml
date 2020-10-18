@@ -30,42 +30,47 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:text="周日" /> -->
-             <Button
+            <Button
                 android:id="@+id/btn_sport_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="根据日期获取" />
-             <Button
+                android:text="Get by date" />
+
+            <Button
                 android:id="@+id/btn_sportitem_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="根据日期获取item" />
-             <Button
+                android:text="Get item by date" />
+
+            <Button
                 android:id="@+id/btn_sport_all"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取所有运动数据" />
-             <Button
+                android:text="Get all sport data" />
+
+            <Button
                 android:id="@+id/btn_sport_week"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取周运动数据" />
-             <Button
+                android:text="Get weekly sport data" />
+
+            <Button
                 android:id="@+id/btn_sport_month"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取月运动数据" />
-             <Button
+                android:text="Get monthly sport data" />
+
+            <Button
                 android:id="@+id/btn_sport_year"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取年运动数据" />
+                android:text="Get yearly sport data" />
              <TextView
                  android:id="@+id/tv_data"
                  android:layout_margin="10dp"
