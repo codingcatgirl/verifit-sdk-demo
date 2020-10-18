@@ -21,7 +21,6 @@ public class AntilostActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_antilost);
 		initView();
@@ -31,7 +30,6 @@ public class AntilostActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switchAntiLost = (Switch) findViewById(R.id.switch_antilost);
@@ -39,29 +37,30 @@ public class AntilostActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
-		// 初始化防丢数据
 		AntilostInfos infos = ProtocolUtils.getInstance().getAntilostInfos();
-		// 防丢类型
-		//LOSE_MODE_NO_ANTI 不防丢  
-		//LOSE_MODE_NEAR_ANTI 近距离防丢
-		//LOSE_MODE_MID_ANTI 中距离防丢
-		//LOSE_MODE_FAR_ANTI 远距离防丢
-		switchAntiLost.setChecked(infos.getMode()!=Constants.LOSE_MODE_NO_ANTI);//如果防丢类型为LOSE_MODE_NO_ANTI 说明不防丢  防丢开关也就是关闭，其他类型的话就是防丢开启
+		//LOSE_MODE_NO_ANTI
+		//LOSE_MODE_NEAR_ANTI
+		//LOSE_MODE_MID_ANTI
+		//LOSE_MODE_FAR_ANTI
+		// If the anti-lost type is LOSE_MODE_NO_ANTI, it means it is not anti-lost. The anti-lost switch is turned off.
+		// For other types, the anti-lost switch is turned on.
+		switchAntiLost.setChecked(infos.getMode()!=Constants.LOSE_MODE_NO_ANTI);
+
 	}
 
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		switchAntiLost.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				// 每次设置成功后设置的数据会保存在数据库中,用于界面展示。
+				// The data set after each successful setting will be saved in the database for interface display.
 				dialog.show();
-				// 设置防丢， 传参防丢类型  LOSE_MODE_NO_ANTI 不防丢   ， LOSE_MODE_NEAR_ANTI 近距离防丢  ，LOSE_MODE_MID_ANTI 中距离防丢  ，LOSE_MODE_FAR_ANTI 远距离防丢
+				// Set anti-lost, pass parameter anti-lost type LOSE_MODE_NO_ANTI not anti-lost,
+				// LOSE_MODE_NEAR_ANTI short-range anti-lost, LOSE_MODE_MID_ANTI middle-range anti-lost,
+				// LOSE_MODE_FAR_ANTI long-distance anti-lost
 				ProtocolUtils.getInstance().setAntilost(arg1?Constants.LOSE_MODE_MID_ANTI:Constants.LOSE_MODE_NO_ANTI);
 			}
 		});
@@ -69,14 +68,13 @@ public class AntilostActivity extends BaseActivity {
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1 == ProtocolEvt.SET_CMD_LOST_FIND.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(AntilostActivity.this, "防丢设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(AntilostActivity.this, "Anti-lost settings successfully saved", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
