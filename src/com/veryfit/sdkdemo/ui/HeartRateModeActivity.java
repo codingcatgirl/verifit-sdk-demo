@@ -20,7 +20,6 @@ public class HeartRateModeActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_heartrate_mode);
 		initView();
@@ -30,7 +29,6 @@ public class HeartRateModeActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switchHeartRateMode = (Switch) findViewById(R.id.switch_heartrate_mode);
@@ -38,13 +36,10 @@ public class HeartRateModeActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
-		// 初始化心率模式
 		int mode = ProtocolUtils.getInstance().getHeartRateMode();
-		//心率检测模式类型
-		//HEARTRATE_MODE_MANUAL 手动模式
-		//HEARTRATE_MODE_AUTOMATIC 自动模式
+		//HEARTRATE_MODE_MANUAL
+		//HEARTRATE_MODE_AUTOMATIC
 		switchHeartRateMode.setChecked(mode==Constants.HEARTRATE_MODE_AUTOMATIC);
 	}
 
@@ -56,11 +51,10 @@ public class HeartRateModeActivity extends BaseActivity {
 
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				// 每次设置成功后设置的数据会保存在数据库中,用于界面展示。
+				// The data set after each successful setting will be saved in the database for interface display.
 				dialog.show();
-				//心率检测模式类型
-				//HEARTRATE_MODE_MANUAL 手动模式
-				//HEARTRATE_MODE_AUTOMATIC 自动模式
+				//HEARTRATE_MODE_MANUAL
+				//HEARTRATE_MODE_AUTOMATIC
 				ProtocolUtils.getInstance().setHeartRateMode(arg1?Constants.HEARTRATE_MODE_AUTOMATIC:Constants.HEARTRATE_MODE_MANUAL);
 			}
 		});
@@ -75,7 +69,7 @@ public class HeartRateModeActivity extends BaseActivity {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HeartRateModeActivity.this, "心率模式设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HeartRateModeActivity.this, "Heart rate mode set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}

@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical" >
+
      <Switch
-        android:id="@+id/switch_heartrate_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:textOff="手动"
-        android:textOn="自动" />
+         android:id="@+id/switch_heartrate_mode"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dp"
+         android:textOff="#"
+         android:textOn="automatic" />
 
 </LinearLayout>
