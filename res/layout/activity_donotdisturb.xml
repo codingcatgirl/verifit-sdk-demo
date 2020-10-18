@@ -9,8 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textOff="关"
-        android:textOn="开" />
+        android:textOff="off"
+        android:textOn="on" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="开始的小时" />
+            android:text="Start hour" />
 
         <EditText
             android:id="@+id/ed_donotdisturb_start_hour"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="单位：小时"
+            android:hint="hour"
             android:inputType="number" />
     </LinearLayout>
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="开始的分钟" />
+            android:text="Start minute" />
 
         <EditText
             android:id="@+id/ed_donotdisturb_start_min"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="单位：分钟"
+            android:hint="minute"
             android:inputType="number" />
     </LinearLayout>
 
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="结束的小时" />
+            android:text="End hour" />
 
         <EditText
             android:id="@+id/ed_donotdisturb_end_hour"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="单位：小时"
+            android:hint="hour"
             android:inputType="number" />
     </LinearLayout>
 
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="结束的分钟" />
+            android:text="End minute" />
 
         <EditText
             android:id="@+id/ed_donotdisturb_end_min"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="单位：分钟"
+            android:hint="minute"
             android:inputType="number" />
     </LinearLayout>
 
@@ -101,6 +101,6 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:text="提交勿扰模式设置" />
+        android:text="Submit do not disturb settings" />
 
 </LinearLayout>

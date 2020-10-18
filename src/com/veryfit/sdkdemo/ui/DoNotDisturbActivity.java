@@ -28,7 +28,6 @@ public class DoNotDisturbActivity extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_donotdisturb);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -39,7 +38,6 @@ public class DoNotDisturbActivity extends BaseActivity{
 	
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog=new BufferDialog(this);
 		edEndHour=(EditText)findViewById(R.id.ed_donotdisturb_end_hour);
@@ -52,9 +50,7 @@ public class DoNotDisturbActivity extends BaseActivity{
 	
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
-		//获取已设置勿扰模式数据
 		DoNotDisturb disturb=ProtocolUtils.getInstance().getDoNotDisturb();
 		if(disturb!=null){
 			edEndHour.setText(disturb.getEndHour()+"");
@@ -68,7 +64,6 @@ public class DoNotDisturbActivity extends BaseActivity{
 	
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		btnCommit.setOnClickListener(new OnClickListener() {
 			
@@ -88,7 +83,6 @@ public class DoNotDisturbActivity extends BaseActivity{
 			
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-				// TODO Auto-generated method stub
 				onOff=arg1;
 			}
 		});
@@ -96,14 +90,13 @@ public class DoNotDisturbActivity extends BaseActivity{
 	
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1==ProtocolEvt.SET_CMD_DO_NOT_DISTURB.toIndex()&&arg2==ProtocolEvt.SUCCESS) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(DoNotDisturbActivity.this, "勿扰设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(DoNotDisturbActivity.this, "Do not disturb settings saved successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
