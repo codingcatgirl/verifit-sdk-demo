@@ -128,147 +128,147 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
-		case R.id.btn_sync_health:// 同步健康数据
+		case R.id.btn_sync_health:
 			Intent syncHealthIntent = new Intent(HomeActivity.this, SyncHealthActivity.class);
 			startActivity(syncHealthIntent);
 			break;
-		case R.id.btn_alarm:// 闹钟提醒
+		case R.id.btn_alarm:
 			Intent alarmIntent = new Intent(HomeActivity.this, AlarmActivity.class);
 			startActivity(alarmIntent);
 			break;
-		case R.id.btn_call_msg:// 电话提醒与短信提醒
+		case R.id.btn_call_msg:
 			Intent msgCallIntent = new Intent(HomeActivity.this, CallAndMsgActivity.class);
 			startActivity(msgCallIntent);
 			break;
-		case R.id.btn_device_info:// 设备信息
+		case R.id.btn_device_info:
 			Intent deviceIntent = new Intent(HomeActivity.this, DeviceInfoActivity.class);
 			startActivity(deviceIntent);
 			break;
-		case R.id.btn_function_infos:// 功能列表
+		case R.id.btn_function_infos:
 			Intent funcIntent = new Intent(HomeActivity.this, FunctionInfosActivity.class);
 			startActivity(funcIntent);
 			break;
-		case R.id.btn_display_mode:// 显示模式
+		case R.id.btn_display_mode:
 			Intent disPlayIntent = new Intent(HomeActivity.this, DisPlayModeActivity.class);
 			startActivity(disPlayIntent);
 			break;
-		case R.id.btn_find_phone:// 寻找手机
+		case R.id.btn_find_phone:
 			Intent findPhoneIntent = new Intent(HomeActivity.this, FindPhoneActivity.class);
 			startActivity(findPhoneIntent);
 			break;
-		case R.id.btn_goal:// 目标设置
+		case R.id.btn_goal:
 			Intent goalIntent = new Intent(HomeActivity.this, SetGoalActivity.class);
 			startActivity(goalIntent);
 			break;
-		case R.id.btn_heart_data:// 心率数据
+		case R.id.btn_heart_data:
 			Intent heartRateIntent = new Intent(HomeActivity.this, HeartRateActivity.class);
 			startActivity(heartRateIntent);
 			break;
-		case R.id.btn_sos:// 一键求助
+		case R.id.btn_sos:
 			Intent intervalIntent = new Intent(HomeActivity.this, SosActivity.class);
 			startActivity(intervalIntent);
 			break;
-		case R.id.btn_heart_Interval:// 心率区间
+		case R.id.btn_heart_Interval:
 			Intent sosIntent = new Intent(HomeActivity.this, HeartRateIntervalActivity.class);
 			startActivity(sosIntent);
 			break;
-		case R.id.btn_heart_mode:// 心率模式
+		case R.id.btn_heart_mode:
 			Intent hearRateModeIntent = new Intent(HomeActivity.this, HeartRateModeActivity.class);
 			startActivity(hearRateModeIntent);
 			break;
-		case R.id.btn_live_data: // 实时数据
+		case R.id.btn_live_data:
 			Intent livedataIntent = new Intent(HomeActivity.this, LiveDataActivity.class);
 			startActivity(livedataIntent);
 			break;
-		case R.id.btn_long_sit:// 久坐提醒
+		case R.id.btn_long_sit:
 			Intent longSitIntent = new Intent(HomeActivity.this, LongSitActivity.class);
 			startActivity(longSitIntent);
 			break;
-		case R.id.btn_lost:// 防丢提醒
+		case R.id.btn_lost:
 			Intent antiLostIntent = new Intent(HomeActivity.this, AntilostActivity.class);
 			startActivity(antiLostIntent);
 			break;
-		case R.id.btn_music:// 音乐提醒
+		case R.id.btn_music:
 			Intent musicIntent = new Intent(HomeActivity.this, MusicActivity.class);
 			startActivity(musicIntent);
 			break;
-		case R.id.btn_photo:// 拍照控制
+		case R.id.btn_photo:
 			Intent cameraIntent = new Intent(HomeActivity.this, CameraActivity.class);
 			startActivity(cameraIntent);
 			break;
-		case R.id.btn_test:// 测试界面
+		case R.id.btn_test:
 			Intent intent = new Intent(HomeActivity.this, DemoTestActivity.class);
 			startActivity(intent);
 			break;
-		case R.id.btn_sendlog:// 发送日志
+		case R.id.btn_sendlog:
 			Intent logIntent = new Intent(HomeActivity.this, SendLogActivity.class);
 			startActivity(logIntent);
 			break;
-		case R.id.btn_restart:// 重启设备
+		case R.id.btn_restart:
 			dialog.show();
 			ProtocolUtils.getInstance().reStartDevice();
 			break;
-		case R.id.btn_unbind:// 解绑
+		case R.id.btn_unbind:
 			dialog.show();
-			// 解绑当设备未连接的情况下只是删除当天的数据，并删除一些绑定状态，重置APP为未绑定设备的状态
-			if (ProtocolUtils.getInstance().isAvailable() != ProtocolUtils.SUCCESS) {// 判断是否连接了设备
+			// Unbinding: When the device is not connected, it just deletes the data of the day,
+			// deletes some binding states, and resets the APP to the state of the unbound device
+			if (ProtocolUtils.getInstance().isAvailable() != ProtocolUtils.SUCCESS) { // Is the device connected?
 				ProtocolUtils.getInstance().setBindMode(Protocol.SYS_MODE_SET_NOBIND);
 				Calendar mCalendar1 = Calendar.getInstance();
 				int year = mCalendar1.get(Calendar.YEAR);
 				int month = mCalendar1.get(Calendar.MONTH);
 				int day = mCalendar1.get(Calendar.DAY_OF_MONTH);
-				ProtocolUtils.getInstance().enforceUnBind(new Date(year, month, day));// (月份从0开始例如8月传7)
+				ProtocolUtils.getInstance().enforceUnBind(new Date(year, month, day));
 				Intent intent1 = new Intent(HomeActivity.this, ScanDeviceActivity.class);
 				startActivity(intent1);
 
 			} else {
-				// 如果设备处于连接状态，则用如下方法解绑
+				// If the device is connected, use the following method to unbind
 				ProtocolUtils.getInstance().setBindMode(Protocol.SYS_MODE_SET_NOBIND);
 				ProtocolUtils.getInstance().setUnBind();
 			}
 			break;
-		case R.id.btn_sleep_data:// 睡眠数据
+		case R.id.btn_sleep_data:
 			Intent sleepIntent = new Intent(HomeActivity.this, SleepActivity.class);
 			startActivity(sleepIntent);
 			break;
-		case R.id.btn_sport_data:// 运动数据
+		case R.id.btn_sport_data:
 			Intent sportIntent = new Intent(HomeActivity.this, SprotActivity.class);
 			startActivity(sportIntent);
 			break;
-		case R.id.btn_sync_config:// 同步配置信息
-			dialog.setTitle("正在同步配置信息");
+		case R.id.btn_sync_config:
+			dialog.setTitle("Syncing Configuration...");
 			dialog.show();
 			ProtocolUtils.getInstance().StartSyncConfigInfo();
 			break;
-		case R.id.btn_undisturb_mode:// 勿扰模式
+		case R.id.btn_undisturb_mode:
 			Intent disIntent = new Intent(HomeActivity.this, DoNotDisturbActivity.class);
 			startActivity(disIntent);
 			break;
-		case R.id.btn_unit:// 单位设置
+		case R.id.btn_unit:
 			Intent unitIntent = new Intent(HomeActivity.this, UnitActivity.class);
 			startActivity(unitIntent);
 			break;
-		case R.id.btn_up_hand:// 抬碗识别
+		case R.id.btn_up_hand:
 			Intent upHandIntent = new Intent(HomeActivity.this, UpHandActivity.class);
 			startActivity(upHandIntent);
 			break;
-		case R.id.btn_userinfo:// 用户信息
+		case R.id.btn_userinfo:
 			Intent userInfoIntent = new Intent(HomeActivity.this, UserInfosActivity.class);
 			startActivity(userInfoIntent);
 			break;
-		case R.id.btn_wear_mode:// 佩戴模式
+		case R.id.btn_wear_mode:
 			Intent handmodeIntent = new Intent(HomeActivity.this, HandModeActivity.class);
 			startActivity(handmodeIntent);
 			break;
-		case R.id.btn_unconnect:// 设置断线
+		case R.id.btn_unconnect:
 			ProtocolUtils.getInstance().setNewUnConnect();
 			break;
-		case R.id.btn_connect:// 设置重连
+		case R.id.btn_connect:
 			ProtocolUtils.getInstance().reConnect();
 			break;
-		case R.id.btn_commission:// 定制
+		case R.id.btn_commission:
 			Intent commissionIntent=new Intent(HomeActivity.this, CommissionActivity.class);
 			startActivity(commissionIntent);
 			break;
@@ -280,26 +280,26 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				public void updateFaild() {
 					view.setEnabled(true);
 					DialogUtil.closeAlertDialog();
-					DialogUtil.showToast(HomeActivity.this, "升级失败");
+					DialogUtil.showToast(HomeActivity.this, "Upgrade failed");
 				}
 
 				@Override
 				public void updateProgressBar(int progress) {
-					DialogUtil.updateWaitDialog("正在升级..." + Math.abs(progress) + "%");
+					DialogUtil.updateWaitDialog("Upgrading..." + Math.abs(progress) + "%");
 				}
 
 				@Override
 				public void updateSuccess() {
 					view.setEnabled(true);
 					DialogUtil.closeAlertDialog();
-					DialogUtil.showToast(HomeActivity.this, "升级成功");
+					DialogUtil.showToast(HomeActivity.this, "Updgrade successfull");
 				}
 
 				@Override
 				public void synchroData(int progress) {
 				}
 			});
-			DialogUtil.showWaitDialog(this, "正在升级...");
+			DialogUtil.showWaitDialog(this, "Upgrading...");
 			updateModel.downAndUpdate();
 			view.setEnabled(false);
 			break;
@@ -318,7 +318,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HomeActivity.this, "同步配置信息成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HomeActivity.this, "Sync Configuration Info successful", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		} else if (arg1 == ProtocolEvt.REBOOT_CMD.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
@@ -326,7 +326,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HomeActivity.this, "重启成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HomeActivity.this, "Reboot successful", Toast.LENGTH_LONG).show();
 				}
 			});
 		} else if (arg1 == ProtocolEvt.BIND_CMD_REMOVE.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
@@ -334,7 +334,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(HomeActivity.this, "解绑成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(HomeActivity.this, "Unbind successful", Toast.LENGTH_LONG).show();
 					Intent intent = new Intent(HomeActivity.this, ScanDeviceActivity.class);
 					startActivity(intent);
 					finish();
@@ -345,8 +345,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					DebugLog.d("收到寻找手机的命令");
-					Toast.makeText(HomeActivity.this, "收到寻找手机的命令", Toast.LENGTH_LONG).show();
+					DebugLog.d("Find Phone Request received");
+					Toast.makeText(HomeActivity.this, "Find Phone Request received", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
@@ -355,25 +355,25 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onBLEConnectTimeOut() {
 		// TODO Auto-generated method stub
-		setTitle("连接超时");
+		setTitle("Connection timed out");
 
 	}
 	@Override
 	public void onBLEConnected(BluetoothGatt arg0) {
 		// TODO Auto-generated method stub
-		setTitle("已连接");
+		setTitle("Connected");
 	}
 
 	@Override
 	public void onBLEConnecting(String arg0) {
 		// TODO Auto-generated method stub
-		setTitle("连接中");
+		setTitle("Connecting");
 	}
 
 	@Override
 	public void onBLEDisConnected(String arg0) {
 		// TODO Auto-generated method stub
-		setTitle("连接已断开");
+		setTitle("Disconnected");
 	}
 	
 }
