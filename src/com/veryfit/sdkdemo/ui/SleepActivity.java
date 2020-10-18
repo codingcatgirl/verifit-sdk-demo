@@ -24,7 +24,6 @@ public class SleepActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sleep);
 		initView();
@@ -62,21 +61,23 @@ public class SleepActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.btn_sleep_bydate:
-			//根据日期获取数据只需传递想查询的那一天的年月日即可，为方便调试以今天为例  获取睡眠数据前务必同步 ，同步后才会有相应的那一天的睡眠数据
+			// To obtain data based on the date, you only need to pass the year, month, and day of the day you want to query.
+			// For the convenience of debugging, take today as an example. Be sure to synchronize before obtaining sleep data.
+			// After synchronization, the sleep data of the corresponding day will be available.
 			@SuppressWarnings("deprecation")
 			healthSleep sleep = ProtocolUtils.getInstance().getHealthSleep(new Date(year, month, day));//(月份从0开始例如8月传7)
 			if(sleep!=null){
 				tvData.setText(sleep.toString());
 			}else {
-				tvData.setText("今日无数据");
+				tvData.setText("No data today");
 			}
 			break;
 		case R.id.btn_sleepitem_bydate:
 			Sb.delete(0, Sb.length());
-			//根据日期获取数据item只需传递想查询的那一天的年月日即可 (不带手环睡觉时不会有睡眠数据的) 睡眠数据item条数不固定 时长也是不固定的
+			// To get the data item according to the date, you only need to pass the year, month and day of the day you want to query
+			// (there will be no sleep data when you sleep without a bracelet) The number of sleep data items is not fixed, and the duration is not fixed.
 			@SuppressWarnings("deprecation")
 			List<healthSleepItem> items = ProtocolUtils.getInstance().getHealthSleepItem(new Date(year, month, day));//(月份从0开始例如8月传7)
 			if(items!=null){
@@ -88,7 +89,7 @@ public class SleepActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sleep_week:
 			Sb.delete(0, Sb.length());
-			//获取周数据  参数1：（当前周传0 上一周传-1再上一周传-2，以此类推）
+			// Get weekly data Parameter 1: (pass 0 in the current week, pass -1 in the previous week, pass -2 in the previous week, and so on)
 			List<healthSleep> weekSleeps=ProtocolUtils.getInstance().getWeekHealthSleep(0);
 			if(weekSleeps!=null&&weekSleeps.size()>0){
 				for (int i = 0; i < weekSleeps.size(); i++) {
@@ -99,7 +100,7 @@ public class SleepActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sleep_month:
 			Sb.delete(0, Sb.length());
-			//获取月数据  参数1：（当前月传0 上一月传-1再上一月传-2，以此类推）
+			// Get monthly data Parameter 1: (pass 0 in the current month, pass -1 in the previous month, pass -2 in the previous month, and so on)
 			List<healthSleep> monthSleeps=ProtocolUtils.getInstance().getMonthHealthSleep(0);
 			if(monthSleeps!=null&&monthSleeps.size()>0){
 				for (int i = 0; i < monthSleeps.size(); i++) {
@@ -110,7 +111,7 @@ public class SleepActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sleep_year:
 			Sb.delete(0, Sb.length());
-			//获取年数据  参数1：（当年周传0 上一年传-1再上一年传-2，以此类推）
+			// Obtain annual data Parameter 1: (Weekly pass 0 in the current year, pass -1 in the previous year, pass -2 in the previous year, and so on)
 			List<healthSleep> yearSleeps=ProtocolUtils.getInstance().getYearHealthSleep(0);
 			if(yearSleeps!=null&&yearSleeps.size()>0){
 				for (int i = 0; i < yearSleeps.size(); i++) {
@@ -121,7 +122,7 @@ public class SleepActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_sleep_all:
 			Sb.delete(0, Sb.length());
-			//获取所有数据库中已存的汇总数据  有几天就返回几条汇总 
+			// Get all the summary data stored in the database. Return a few summaries within a few days
 			List<healthSleep> sleeps=ProtocolUtils.getInstance().getAllHealthSleep();
 			if(sleeps!=null&&sleeps.size()>0){
 				for (int i = 0; i < sleeps.size(); i++) {

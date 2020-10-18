@@ -12,42 +12,48 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-             <Button
+
+            <Button
                 android:id="@+id/btn_sleep_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="根据日期获取" />
-             <Button
+                android:text="Get by date" />
+
+            <Button
                 android:id="@+id/btn_sleepitem_bydate"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="根据日期获取item" />
-             <Button
+                android:text="Get item by date" />
+
+            <Button
                 android:id="@+id/btn_sleep_all"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取所有睡眠数据" />
-             <Button
+                android:text="Get all sleep data" />
+
+            <Button
                 android:id="@+id/btn_sleep_week"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取周睡眠动数据" />
-             <Button
+                android:text="Get weekly sleep data" />
+
+            <Button
                 android:id="@+id/btn_sleep_month"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取月睡眠数据" />
-             <Button
+                android:text="Get monthly sleep data" />
+
+            <Button
                 android:id="@+id/btn_sleep_year"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:text="获取年睡眠数据" />
+                android:text="Get yearly sleep data" />
              <TextView
                  android:id="@+id/tv_data"
                  android:layout_margin="10dp"
