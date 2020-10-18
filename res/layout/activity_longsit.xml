@@ -17,15 +17,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="设置久坐提醒开关" />
+                android:text="@string/sedentary_reminder" />
 
             <Switch
                 android:id="@+id/switch_longsit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textOff="关"
-                android:textOn="开" />
+                android:textOff="off"
+                android:textOn="on" />
 
             <View
                 android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="设置未活动多少分钟后开始提醒" />
+                android:text="Remind after x minuts:" />
 
             <EditText
                 android:id="@+id/ed_longsit_min"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="单位分钟"
+                android:hint="Minutes"
                 android:inputType="number" />
 
             <View
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="设置开始的时间" />
+                android:text="Start time" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:hint="开始的小时"
+                    android:hint="Hour"
                     android:inputType="number" />
 
                 <EditText
@@ -82,7 +82,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:hint="开始的分钟"
+                    android:hint="Minute"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="设置结束的时间" />
+                android:text="End time" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:hint="结束的小时"
+                    android:hint="Hour"
                     android:inputType="number" />
 
                 <EditText
@@ -120,7 +120,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:hint="结束的分钟"
+                    android:hint="Minute"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -146,14 +146,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周一" />
+                    android:text="Monday" />
             </LinearLayout>
 
             <LinearLayout
@@ -166,14 +166,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周二" />
+                    android:text="Tuesday" />
             </LinearLayout>
 
             <LinearLayout
@@ -186,14 +186,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周三" />
+                    android:text="Wednesday" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,14 +206,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周四" />
+                    android:text="Thursday" />
             </LinearLayout>
 
             <LinearLayout
@@ -226,14 +226,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周五" />
+                    android:text="Friday" />
             </LinearLayout>
 
             <LinearLayout
@@ -246,14 +246,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周六" />
+                    android:text="Saturday" />
             </LinearLayout>
 
             <LinearLayout
@@ -266,14 +266,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textOff="关"
-                    android:textOn="开" />
+                    android:textOff="off"
+                    android:textOn="on" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="周日" />
+                    android:text="Sunday" />
             </LinearLayout>
 
             <View
@@ -287,7 +287,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
-                android:text="提交久坐提醒设置" />
+                android:text="Submit sedentary reminder settings" />
         </LinearLayout>
     </ScrollView>
 

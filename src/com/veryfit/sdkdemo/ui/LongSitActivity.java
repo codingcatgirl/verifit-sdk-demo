@@ -33,7 +33,6 @@ public class LongSitActivity extends BaseActivity implements OnCheckedChangeList
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_longsit);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -44,7 +43,6 @@ public class LongSitActivity extends BaseActivity implements OnCheckedChangeList
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switch1 = (Switch) findViewById(R.id.switch_1);
@@ -72,7 +70,6 @@ public class LongSitActivity extends BaseActivity implements OnCheckedChangeList
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
 		LongSit longSit = ProtocolUtils.getInstance().getLongSit();
 		for (int i = 0; i < 7; i++) {
@@ -95,7 +92,6 @@ public class LongSitActivity extends BaseActivity implements OnCheckedChangeList
 
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		switch1.setOnCheckedChangeListener(this);
 		switch2.setOnCheckedChangeListener(this);
@@ -155,14 +151,13 @@ public class LongSitActivity extends BaseActivity implements OnCheckedChangeList
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1 == ProtocolEvt.SET_CMD_LONG_SIT.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(LongSitActivity.this, "久坐设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(LongSitActivity.this, "Sedentary settings update successfully", Toast.LENGTH_LONG).show();
 				}
 			}, 200);
 		}
