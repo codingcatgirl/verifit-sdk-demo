@@ -17,200 +17,200 @@
                 android:id="@+id/btn_commission"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Custom" />
+                android:text="@string/commission" />
 
             <Button
                 android:id="@+id/btn_unconnect"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Disconnect" />
+                android:text="@string/disconnect" />
 
             <Button
                 android:id="@+id/btn_connect"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Relink" />
+                android:text="@string/re_connect" />
 
             <Button
                 android:id="@+id/btn_test"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="test"
+                android:text="@string/test"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/btn_sync_health"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Sync Health Information" />
+                android:text="@string/sync_health_information" />
 
             <Button
                 android:id="@+id/btn_sync_config"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Sync Configuration Info" />
+                android:text="@string/sync_configuration_info" />
 
             <Button
                 android:id="@+id/btn_function_infos"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="feature list" />
+                android:text="@string/function_infos" />
 
             <Button
                 android:id="@+id/btn_live_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="real-time data" />
+                android:text="@string/live_data" />
 
             <Button
                 android:id="@+id/btn_sport_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="motion data" />
+                android:text="@string/sport_data" />
 
             <Button
                 android:id="@+id/btn_sleep_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="sleep data" />
+                android:text="@string/sleep_data" />
 
             <Button
                 android:id="@+id/btn_heart_data"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="heart rate data" />
+                android:text="@string/heart_data" />
 
             <Button
                 android:id="@+id/btn_device_info"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Device Info" />
+                android:text="@string/device_info" />
 
             <Button
                 android:id="@+id/btn_call_msg"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Incoming Call Alert and Smart Alert" />
+                android:text="@string/calls_and_messages" />
 
             <Button
                 android:id="@+id/btn_wear_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Wear Mode" />
+                android:text="@string/wear_mode" />
 
             <Button
                 android:id="@+id/btn_up_hand"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="lifting bowl recognition" />
+                android:text="@string/lift_hand_recognition" />
 
             <Button
                 android:id="@+id/btn_lost"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="anti-lost reminder" />
+                android:text="@string/lost" />
 
             <Button
                 android:id="@+id/btn_sos"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Emergency Help" />
+                android:text="@string/sos" />
 
             <Button
                 android:id="@+id/btn_find_phone"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="look for phone" />
+                android:text="@string/look_for_phone" />
 
             <Button
                 android:id="@+id/btn_long_sit"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Sedentary reminder" />
+                android:text="@string/sedentary_reminder" />
 
             <Button
                 android:id="@+id/btn_undisturb_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Do not disturb mode" />
+                android:text="@string/do_not_disturb_mode" />
 
             <Button
                 android:id="@+id/btn_display_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="display mode" />
+                android:text="@string/display_mode" />
 
             <Button
                 android:id="@+id/btn_heart_Interval"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="heart rate interval" />
+                android:text="@string/heart_rate_interval" />
 
             <Button
                 android:id="@+id/btn_heart_mode"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="heart rate mode" />
+                android:text="@string/heart_rate_mode" />
 
             <Button
                 android:id="@+id/btn_photo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="photo control" />
+                android:text="@string/photo_control" />
 
             <Button
                 android:id="@+id/btn_music"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="music control" />
+                android:text="@string/music_control" />
 
             <Button
                 android:id="@+id/btn_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="alarm alarm" />
+                android:text="@string/alarm" />
 
             <Button
                 android:id="@+id/btn_goal"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="target settings" />
+                android:text="@string/goals" />
 
             <Button
                 android:id="@+id/btn_userinfo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="user information" />
+                android:text="@string/user_info" />
 
             <Button
                 android:id="@+id/btn_unit"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Unit Settings" />
+                android:text="@string/units" />
 
             <Button
                 android:id="@+id/btn_unbind"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Untied" />
+                android:text="@string/unbind" />
 
             <Button
                 android:id="@+id/btn_restart"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="reboot device" />
+                android:text="@string/reboot_device" />
 
             <Button
                 android:id="@+id/btn_sendlog"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Send Log" />
+                android:text="@string/send_log" />
 
             <Button
                 android:id="@+id/btn_update"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Device Upgrade" />
+                android:text="@string/device_upgrade" />
         </LinearLayout>
     </ScrollView>
 
