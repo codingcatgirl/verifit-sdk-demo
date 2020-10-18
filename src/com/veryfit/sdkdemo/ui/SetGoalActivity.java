@@ -22,7 +22,6 @@ public class SetGoalActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_goal);
 		initView();
@@ -32,7 +31,6 @@ public class SetGoalActivity extends BaseActivity {
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		edSportGoal = (EditText) findViewById(R.id.ed_goal_sport);
@@ -41,7 +39,6 @@ public class SetGoalActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
 		if (ProtocolUtils.getInstance().getSportGoal() != 0) {
 			edSportGoal.setText(ProtocolUtils.getInstance().getSportGoal() + "");
@@ -50,15 +47,12 @@ public class SetGoalActivity extends BaseActivity {
 
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		btnCommit.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				dialog.show();
-				//设置运动目标
 				ProtocolUtils.getInstance().setSportgoal(Integer.parseInt(edSportGoal.getText().toString()));
 			}
 		});
@@ -66,14 +60,13 @@ public class SetGoalActivity extends BaseActivity {
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if (arg1 == ProtocolEvt.SET_CMD_SPORT_GOAL.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(SetGoalActivity.this, "设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(SetGoalActivity.this, "Successfully set", Toast.LENGTH_LONG).show();
 				}
 			});
 		}
