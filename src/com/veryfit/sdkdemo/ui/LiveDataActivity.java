@@ -23,7 +23,6 @@ public class LiveDataActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_livedata);
 		initView();
@@ -57,14 +56,14 @@ public class LiveDataActivity extends BaseActivity {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 				case 1:
-					//BLUETOOTH_NOT_OPEN// 蓝牙没打开
-					//DEVICE_NOT_CONNECT// 设备未连接
-					//DEVICE_NO_BLUEETOOTH// 无蓝牙设备
-					//SUCCESS// 一切正常
+					//BLUETOOTH_NOT_OPEN
+					//DEVICE_NOT_CONNECT
+					//DEVICE_NO_BLUEETOOTH
+					//SUCCESS
 					if(ProtocolUtils.getInstance().isAvailable() == ProtocolUtils.SUCCESS){
 						ProtocolUtils.getInstance().getLiveData();
 					}else {
-						setTitle("设备未连接");
+						setTitle("Device not connected");
 					}
 					break;
 				}
@@ -80,20 +79,18 @@ public class LiveDataActivity extends BaseActivity {
 	
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		close();
 	}
 
 	@Override
 	public void onLiveData(final RealTimeHealthData arg0) {
-		// TODO Auto-generated method stub
 		if (arg0 != null) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					livedatSb.append(arg0.toString()+"\n\n");
-					tvLiveData.setText("实时数据:\n\n" + livedatSb.toString());
+					tvLiveData.setText("Real-time data:\n\n" + livedatSb.toString());
 					scrollView.fullScroll(ScrollView.FOCUS_DOWN);
 				}
 			}, 200);
