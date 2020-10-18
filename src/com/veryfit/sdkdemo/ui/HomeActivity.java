@@ -310,7 +310,6 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		DebugLog.d("HomeProtocolEvt=" + arg1);
 
 		if (arg1 == ProtocolEvt.SYNC_EVT_CONFIG_SYNC_COMPLETE.toIndex() && arg2 == ProtocolEvt.SUCCESS) {
