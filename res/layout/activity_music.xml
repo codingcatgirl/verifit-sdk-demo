@@ -17,35 +17,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textColor="@color/red"
-                android:text="注意：需设置音乐控制开关“开”，并设置音乐开始才能在支持音乐控制的设备上显示音乐播放界面。" />
+                android:text='Note: You need to set the music control switch to "on" and set the music start to display the music playback interface on devices that support music control.'
+                android:textColor="@color/red" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="设置音乐控制开关" />
+                android:text="@string/music_control" />
 
             <Switch
                 android:id="@+id/switch_music_onoff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textOff="关"
-                android:textOn="开" />
+                android:textOff="off"
+                android:textOn="on" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="App控制手环音乐开始与结束" />
+                android:text="State displayed on the watch" />
 
             <Switch
                 android:id="@+id/switch_music_startorend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textOff="结束"
-                android:textOn="开始" />
+                android:textOff="Paused"
+                android:textOn="Playing" />
 
             <View
                 android:layout_width="match_parent"

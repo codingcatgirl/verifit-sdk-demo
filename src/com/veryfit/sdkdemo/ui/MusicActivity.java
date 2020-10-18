@@ -22,7 +22,6 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_music);
 		initView();
@@ -32,7 +31,6 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog=new BufferDialog(this);
 		switchOnOff=(Switch)findViewById(R.id.switch_music_onoff);
@@ -42,7 +40,6 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 	
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 		super.initData();
 		switchOnOff.setChecked(ProtocolUtils.getInstance().getMusicOnoff());
 		
@@ -50,7 +47,6 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 	
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		switchOnOff.setOnCheckedChangeListener(this);
 		switchStartOrStop.setOnCheckedChangeListener(this);
@@ -58,14 +54,13 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 	
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.switch_music_onoff:
 			dialog.show();
-			ProtocolUtils.getInstance().setMusicOnoff(arg1);//设置音乐控制开关
+			ProtocolUtils.getInstance().setMusicOnoff(arg1);
 			break;
 		case R.id.switch_music_startorend:
-			//App控制手环音乐开始与结束
+			// Playing/Paused state displayed on the watch
 			if(arg1){
 				dialog.show();
 				ProtocolUtils.getInstance().startMusic();
@@ -82,14 +77,13 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 	
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		super.onSysEvt(arg0, arg1, arg2, arg3); 
+		super.onSysEvt(arg0, arg1, arg2, arg3);
 		if(arg1==ProtocolEvt.SET_CMD_MUSIC_ONOFF.toIndex()&&arg2==ProtocolEvt.SUCCESS){
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(MusicActivity.this, "设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(MusicActivity.this, "Set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}else if (arg1==ProtocolEvt.APP_TO_BLE_MUSIC_START.toIndex()&&arg2==ProtocolEvt.SUCCESS) {
@@ -97,7 +91,7 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(MusicActivity.this, "app控制手环音乐开始设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(MusicActivity.this, "Playing state set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}else if (arg1==ProtocolEvt.APP_TO_BLE_MUSIC_STOP.toIndex()&&arg2==ProtocolEvt.SUCCESS) {
@@ -105,14 +99,14 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(MusicActivity.this, "app控制手环音乐结束设置成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(MusicActivity.this, "Paused state set successfully", Toast.LENGTH_LONG).show();
 				}
 			});
 		}else if (arg1==ProtocolEvt.BLE_TO_APP_MUSIC_LAST.toIndex()&&arg2==ProtocolEvt.SUCCESS) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了上一曲命令，开发者可在此回调中处理相应逻辑"+"\n\n");
+					receiveSb.append("Received music previous track request"+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
@@ -120,7 +114,7 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了下一曲命令，开发者可在此回调中处理相应逻辑"+"\n\n");
+					receiveSb.append("Received music next track request"+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
@@ -128,7 +122,7 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了暂停命令，开发者可在此回调中处理相应逻辑"+"\n\n");
+					receiveSb.append("Received music pause request"+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
@@ -136,7 +130,7 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了音乐开始命令，开发者可在此回调中处理相应逻辑"+"\n\n");
+					receiveSb.append("Received music play request"+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
@@ -144,7 +138,7 @@ public class MusicActivity extends BaseActivity implements OnCheckedChangeListen
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了音乐停止命令，开发者可在此回调中处理相应逻辑"+"\n\n");
+					receiveSb.append("Received music stop request"+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
