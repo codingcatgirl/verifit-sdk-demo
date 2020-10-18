@@ -24,7 +24,6 @@ public class CameraActivity extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_camera);
 		initView();
@@ -33,7 +32,6 @@ public class CameraActivity extends BaseActivity{
 	
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
 		super.initView();
 		dialog = new BufferDialog(this);
 		switchCamera = (Switch) findViewById(R.id.switch_camera);
@@ -43,7 +41,6 @@ public class CameraActivity extends BaseActivity{
 	
 	@Override
 	public void addListener() {
-		// TODO Auto-generated method stub
 		super.addListener();
 		switchCamera.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -51,19 +48,18 @@ public class CameraActivity extends BaseActivity{
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 				if(arg1){
 					dialog.show();
-					ProtocolUtils.getInstance().startPhoto();//进入拍照模式
+					ProtocolUtils.getInstance().startPhoto();// Enter photo mode
 				}else {
 					dialog.show();
-					receiveSb.delete(0,receiveSb.length());//清空数据
-					ProtocolUtils.getInstance().stopPhoto();//退出拍照模式
+					receiveSb.delete(0,receiveSb.length());// Clear data
+					ProtocolUtils.getInstance().stopPhoto();// Stop photo mode
 				}
 			}
 		});
 	}
-	
+
 	@Override
 	public void onSysEvt(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
 		super.onSysEvt(arg0, arg1, arg2, arg3);
 		DebugLog.d("type="+arg1);
 		if(arg1==ProtocolEvt.APP_TO_BLE_PHOTO_START.toIndex()&&arg2==ProtocolEvt.SUCCESS){
@@ -71,15 +67,15 @@ public class CameraActivity extends BaseActivity{
 				@Override
 				public void run() {
 					dialog.dismiss();
-					Toast.makeText(CameraActivity.this, "进入拍照模式成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(CameraActivity.this, "Successfully entered photo mode", Toast.LENGTH_LONG).show();
 				}
 			});
 		}else if (arg1==ProtocolEvt.BLE_TO_APP_PHOTO_SINGLE_SHOT.toIndex()) {
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					//执行拍照处理回调
-					receiveSb.append("接收到了单拍命令，开发者可在此回调中处理拍照逻辑"+"\n\n");
+					// Perform photo processing callback
+					receiveSb.append("Single shot command received."+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});
@@ -87,7 +83,7 @@ public class CameraActivity extends BaseActivity{
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					receiveSb.append("接收到了连拍命令，开发者可在此回调中处理拍照逻辑"+"\n\n");
+					receiveSb.append("Continuous shooting command received."+"\n\n");
 					tvReceive.setText(receiveSb.toString());
 				}
 			});

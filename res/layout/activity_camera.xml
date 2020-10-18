@@ -18,8 +18,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:textOff="进入拍照模式"
-                android:textOn="退出拍照模式" />
+                android:textOff="Off"
+                android:textOn="@string/action_settings" />
 
             <TextView
                 android:id="@+id/tv_receive"
