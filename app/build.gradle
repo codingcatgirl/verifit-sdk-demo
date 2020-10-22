@@ -6,14 +6,18 @@ android {
 
     defaultConfig {
         targetSdkVersion 29
-        minSdkVersion 18
-    }
+        minSdkVersion 21
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['app/src/main/jniLibs']
+        ndk {
+            abiFilters "armeabi"
         }
     }
+
+    // sourceSets {
+    //     main {
+    //       jniLibs.srcDirs = ['jni']
+    //     }
+    // }
 }
 
 repositories {

@@ -1,12 +1,18 @@
 package com.veryfit.sdkdemo.service;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.bluetooth.BluetoothGatt;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 
@@ -48,8 +54,30 @@ public class CallService extends Service implements AppBleListener, ProtocalCall
 
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		super.onCreate();
+
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+			String NOTIFICATION_CHANNEL_ID = "com.verifit.sdkdemo";
+			String channelName = "Background Service";
+			NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+			chan.setLightColor(Color.BLUE);
+			chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+
+			NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			assert manager != null;
+			manager.createNotificationChannel(chan);
+
+			Notification.Builder notificationBuilder = new Notification.Builder(this, NOTIFICATION_CHANNEL_ID);
+			Notification notification = notificationBuilder.setOngoing(true)
+					.setContentTitle("App is running in background")
+					//.setPriority(NotificationManager.IMPORTANCE_MIN)
+					.setCategory(Notification.CATEGORY_SERVICE)
+					.build();
+			startForeground(2, notification);
+		} else {
+			startForeground(1, new Notification());
+		}
+
 		ProtocolUtils.getInstance().setBleListener(this);
 		ProtocolUtils.getInstance().setProtocalCallBack(this);
 
