@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/verifit-sdk-demo.iml" filepath="$PROJECT_DIR$/.idea/verifit-sdk-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/verifit-sdk-demo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/verifit-sdk-demo.app.iml" />
     </modules>
   </component>
 </project>

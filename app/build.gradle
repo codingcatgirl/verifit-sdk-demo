@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    defaultConfig {
+        targetSdkVersion 29
+        minSdkVersion 18
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['app/src/main/jniLibs']
+        }
+    }
+}
+
+repositories {
+    google()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
