@@ -145,6 +145,7 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 	public void onSysEvt(int evt_base, int evt_type, int error, int value) {
 		super.onSysEvt(evt_base, evt_type, error, value);
 		if (evt_type == ProtocolEvt.BIND_CMD_REQUEST.toIndex() && error == ProtocolEvt.SUCCESS) {
+			DebugLog.d("success");
 			if (mBufferDialog != null) {
 				mBufferDialog.setTitle("Binding successful, syncing configuration...");
 			}
@@ -157,6 +158,11 @@ public class ScanDeviceActivity extends BaseActivity implements OnClickListener 
 					ProtocolUtils.getInstance().StartSyncConfigInfo();
 				}
 			});
+		} else if (evt_type == ProtocolEvt.BIND_CMD_REQUEST.toIndex() && error == 13) {
+			DebugLog.d("timeout");
+			if (mBufferDialog != null) {
+				mBufferDialog.setTitle("Binding timeout... sorry");
+			}
 		} else if (evt_type == ProtocolEvt.SYNC_EVT_CONFIG_SYNC_COMPLETE.toIndex() && error == ProtocolEvt.SUCCESS) {
 			mHandler.postDelayed(new Runnable() {
 				@Override
